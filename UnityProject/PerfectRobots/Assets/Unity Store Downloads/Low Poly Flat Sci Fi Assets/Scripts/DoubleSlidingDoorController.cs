@@ -70,8 +70,8 @@ public class DoubleSlidingDoorController : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter(Collider other) {
-
+    void OnTriggerEnter(Collider other)
+    {
         if (other.GetComponent<Collider>().gameObject.layer != LayerMask.NameToLayer("Characters")) return;
 
         if (status != DoubleSlidingDoorStatus.Animating)
@@ -85,7 +85,7 @@ public class DoubleSlidingDoorController : MonoBehaviour {
         objectsOnDoorArea++;
     }
 
-	void OnTriggerStay(Collider other) {
+    void OnTriggerStay(Collider other) {
 		
 	}
 
