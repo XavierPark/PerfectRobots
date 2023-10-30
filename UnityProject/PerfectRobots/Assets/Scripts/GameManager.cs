@@ -5,10 +5,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public GameObject player;
 
     int enemiesRemaining;
 
-    //door stuff
+    //door stuff - Dami
     EndDoor endDoor;
     [SerializeField]GameObject door;
     FinishLine finish;
@@ -21,7 +22,7 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         endDoor = door.GetComponent<EndDoor>();
-       
+        player = GameObject.FindWithTag("Player");
     }
 
     public void UpdateGameGoal(int amount)
