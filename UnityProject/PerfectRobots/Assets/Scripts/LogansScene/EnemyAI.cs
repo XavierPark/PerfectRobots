@@ -17,26 +17,26 @@ public class EnemyAI : MonoBehaviour, IDamage
     [Range(1, 20)][SerializeField] int playerFaceSpeed;
 
     [Header("----- Gun Stats -----")]
-    [SerializeField] GameObject bullet;
-    [SerializeField] float shootRate;
+    //[SerializeField] GameObject bullet;
+    //[SerializeField] float shootRate;
 
 
     Vector3 playerDir;
-    bool isShooting;
+    //bool isShooting;
 
     void Start()
     {
-        GameManager.instance.updateGameGoal(1);
+        GameManager.instance.UpdateGameGoal(1);
     }
 
     void Update()
     {
         playerDir = GameManager.instance.player.transform.position - transform.position;
 
-        if(!isShooting)
-        {
-            StartCoroutine(shoot());
-        }
+        //if(!isShooting)
+        //{
+        //    StartCoroutine(shoot());
+        //}
 
         if(agent.remainingDistance < agent.stoppingDistance)
         {
@@ -46,25 +46,25 @@ public class EnemyAI : MonoBehaviour, IDamage
         agent.SetDestination(GameManager.instance.player.transform.position);
     }
 
-    IEnumerator shoot()
-    {
-        isShooting = true;
+    //IEnumerator shoot()
+    //{
+    //    isShooting = true;
 
-        //using transform.rotation will shoot the bullet wherever the enemy is pointing
-        Instantiate(bullet, shootPos.position, transform.rotation);
-        yield return new WaitForSeconds(shootRate);
+    //    //using transform.rotation will shoot the bullet wherever the enemy is pointing
+    //    //Instantiate(bullet, shootPos.position, transform.rotation);
+    //    yield return new WaitForSeconds(shootRate);
 
-        isShooting = false;
-    }
+    //    isShooting = false;
+    //}
 
     public void takeDamage(int amount)
     {
-        HP -= amount;
         StartCoroutine(flashRed());
+        HP -= amount;
 
         if (HP <= 0)
         {
-            GameManager.instance.updateGameGoal(-1);
+            GameManager.instance.UpdateGameGoal(-1);
             Destroy(gameObject);
         }
     }
