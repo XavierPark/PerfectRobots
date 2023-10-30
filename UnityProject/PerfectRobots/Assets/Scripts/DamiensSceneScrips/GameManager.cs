@@ -31,7 +31,6 @@ public class GameManager : MonoBehaviour
         if(enemiesRemaining <= 0)
         {
             StartCoroutine(endDoor.OpenDoors());
-            Debug.Log(finish.playerInArea);
             ExitDoorCondition();
         }
     }
