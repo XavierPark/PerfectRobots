@@ -11,8 +11,9 @@ public class GameManager : MonoBehaviour
 
     //door stuff - Dami
     EndDoor endDoor;
-    [SerializeField]GameObject door;
+    [SerializeField] GameObject door;
     FinishLine finish;
+    [SerializeField] Collider box;
     static private int floorLevelMax = 1;
     int currFloorFinish;
 
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         endDoor = door.GetComponent<EndDoor>();
+        finish = box.GetComponent<FinishLine>();
         player = GameObject.FindWithTag("Player");
     }
 
@@ -32,19 +34,15 @@ public class GameManager : MonoBehaviour
         if(enemiesRemaining <= 0)
         {
             StartCoroutine(endDoor.OpenDoors());
-            ExitDoorCondition();
         }
     }
 
     public void ExitDoorCondition()
     {
-        if(finish.playerInArea == true)
+        currFloorFinish++;
+        if (currFloorFinish == floorLevelMax)
         {
-            currFloorFinish++;
-            if(currFloorFinish == floorLevelMax)
-            {
-                YouWin();
-            }
+            YouWin();
         }
     }
 
@@ -59,5 +57,6 @@ public class GameManager : MonoBehaviour
     public void YouWin()
     {
         statePause();
+        currFloorFinish = 0;
     }
 }
