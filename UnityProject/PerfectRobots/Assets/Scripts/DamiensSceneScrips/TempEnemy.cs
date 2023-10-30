@@ -5,12 +5,11 @@ using UnityEngine;
 public class TempEnemy : MonoBehaviour, IDamage
 {
     [SerializeField] int Hp;
-
-    int enemiesRemaining;
+    [SerializeField] Renderer model;
 
     void Start()
     {
-        
+        GameManager.instance.UpdateGameGoal(1);
     }
 
     // Update is called once per frame
@@ -21,25 +20,20 @@ public class TempEnemy : MonoBehaviour, IDamage
 
     public void takeDamage(int dmg)
     {
+        StartCoroutine(FlashRed());
         Hp -= dmg;
 
-        if(Hp <= 0)
+        if (Hp <= 0)
         {
             Destroy(gameObject);
-        }
-    }
-    public void UpdateGameGoal(int amount)
-    {
-        enemiesRemaining += amount;
-
-        if (enemiesRemaining <= 0)
-        {
-            ExitDoorCondition();
+            GameManager.instance.UpdateGameGoal(-1);
         }
     }
 
-    public void ExitDoorCondition()
+    IEnumerator FlashRed()
     {
-        
+        model.material.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        model.material.color = Color.white;
     }
 }

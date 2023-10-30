@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamage //Added this since you have take damage added -Dami
 {
     [Header("----- Components -----")]
     [SerializeField] CharacterController controller;
@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     [Header("----- Gun Stats -----")]
     [SerializeField] int shootDamage;
     [SerializeField] int shootDist;
-    [SerializeField] int shootRate;
+    [SerializeField] float shootRate; //Changed to float so we can have faster gunfire - Dami
     [SerializeField] GameObject bullet;
 
     private Vector3 move;
@@ -74,7 +74,8 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
         {
-            Instantiate(bullet, hit.point, bullet.transform.rotation);
+            //Commenting this out to see if thats why my glass will not work -Dami
+            //Instantiate(bullet, hit.point, bullet.transform.rotation);
             IDamage damageable = hit.collider.GetComponent<IDamage>();
 
             if (hit.transform != transform && damageable != null)

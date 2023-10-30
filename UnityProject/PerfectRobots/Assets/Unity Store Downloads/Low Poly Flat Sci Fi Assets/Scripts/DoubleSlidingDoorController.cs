@@ -96,7 +96,7 @@ public class DoubleSlidingDoorController : MonoBehaviour {
 		}
 	}
 
-	IEnumerator OpenDoors () {
+	public IEnumerator OpenDoors () {
 
 		if (doorOpeningSoundClip != null) {
 			audioSource.PlayOneShot (doorOpeningSoundClip, 0.7F);
