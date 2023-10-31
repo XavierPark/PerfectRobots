@@ -32,13 +32,13 @@ public class GroundObjectController : MonoBehaviour
             {
                 Vector3 spPos = obj.transform.position;
                 Quaternion spRot = obj.transform.rotation;
-                instantiateGroundObject(obj, spPos, spRot);
+                instantiateGroundObject(Inventory.instance.LazerBlasterGO, spPos, spRot);
             }
             else if (obj.CompareTag("AmmoSpPos"))
             {
                 Vector3 spPos = obj.transform.position;
                 Quaternion spRot = obj.transform.rotation;
-                instantiateGroundObject(obj, spPos, spRot);
+                instantiateGroundObject(Inventory.instance.AmmoGO, spPos, spRot);
             }
         }
     }
