@@ -5,6 +5,10 @@ using UnityEngine;
 public class GroundObjectController : MonoBehaviour
 {
     public static GroundObjectController instance;
+    public List<GameObject> groundObjectPosList;
+    public GameObject[] GBtempArray;
+
+
 
     void Awake()
     {
@@ -13,6 +17,35 @@ public class GroundObjectController : MonoBehaviour
             Debug.LogWarning("More than one instance of GroundObjectController found!");
         }
         instance = this;
+    }
+
+    void Start()
+    {
+        GBtempArray = GameObject.FindGameObjectsWithTag("LazerBlasterSpPos");
+        groundObjectPosList.AddRange(GBtempArray);
+        GBtempArray = GameObject.FindGameObjectsWithTag("AmmoSpPos");
+        groundObjectPosList.AddRange(GBtempArray);
+
+        foreach (GameObject obj in groundObjectPosList)
+        {
+            if (obj.CompareTag("LazerBlasterSpPos"))
+            {
+                Vector3 spPos = obj.transform.position;
+                Quaternion spRot = obj.transform.rotation;
+                instantiateGroundObject(obj, spPos, spRot);
+            }
+            else if (obj.CompareTag("AmmoSpPos"))
+            {
+                Vector3 spPos = obj.transform.position;
+                Quaternion spRot = obj.transform.rotation;
+                instantiateGroundObject(obj, spPos, spRot);
+            }
+        }
+    }
+
+    public void instantiateGroundObject(GameObject obj,Vector3 spPos, Quaternion spRot)
+    {
+        Instantiate(obj, spPos, spRot);
     }
 
     public void itemUsedGBC(GameObject calledBy, SphereCollider collider)
