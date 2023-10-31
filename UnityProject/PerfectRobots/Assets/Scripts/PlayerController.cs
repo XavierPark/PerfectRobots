@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     [Range(2, 8)][SerializeField] float playerSpeed;
     [SerializeField] float jumpHeight;
     [Range(1,10)][SerializeField] float HP;
+
     [Header("----- Gun Stats -----")]
     [SerializeField] int shootDamage;
     [SerializeField] int shootDist;

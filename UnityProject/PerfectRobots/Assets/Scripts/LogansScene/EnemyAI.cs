@@ -20,6 +20,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     //[SerializeField] GameObject bullet;
     //[SerializeField] float shootRate;
 
+
     Vector3 playerDir;
     //bool isShooting;
 
