@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class FinishLine : MonoBehaviour
 {
-    public bool playerInArea = false;
-
-    //Having big anger
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            GameManager.instance.ExitDoorCondition();
+        }
+    }
 }
