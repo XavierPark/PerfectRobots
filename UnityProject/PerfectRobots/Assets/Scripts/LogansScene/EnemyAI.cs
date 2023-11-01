@@ -17,12 +17,13 @@ public class EnemyAI : MonoBehaviour, IDamage
     [Range(1, 20)][SerializeField] int playerFaceSpeed;
 
     [Header("----- Gun Stats -----")]
-    //[SerializeField] GameObject bullet;
-    //[SerializeField] float shootRate;
+    [SerializeField] GameObject bullet;
+    [SerializeField] float shootRate;
 
 
     Vector3 playerDir;
-    //bool isShooting;
+    bool isShooting;
+    bool playerInRange;
 
     void Start()
     {
@@ -31,36 +32,56 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     void Update()
     {
-        playerDir = GameManager.Instance.player.transform.position - transform.position;
-
-        //if(!isShooting)
-        //{
-        //    StartCoroutine(shoot());
-        //}
-
-        if(agent.remainingDistance < agent.stoppingDistance)
+        if (playerInRange)
         {
-            faceTarget();
-        }
+            playerDir = GameManager.Instance.player.transform.position - transform.position;
 
-        agent.SetDestination(GameManager.Instance.player.transform.position);
+            if (!isShooting)
+            {
+                StartCoroutine(shoot());
+            }
+
+            if (agent.remainingDistance < agent.stoppingDistance)
+            {
+                faceTarget();
+            }
+
+            agent.SetDestination(GameManager.Instance.player.transform.position);
+        }
     }
 
-    //IEnumerator shoot()
-    //{
-    //    isShooting = true;
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = true;
+        }
+    }
 
-    //    //using transform.rotation will shoot the bullet wherever the enemy is pointing
-    //    //Instantiate(bullet, shootPos.position, transform.rotation);
-    //    yield return new WaitForSeconds(shootRate);
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
+        }
+    }
 
-    //    isShooting = false;
-    //}
+    IEnumerator shoot()
+    {
+        isShooting = true;
+
+        //using transform.rotation will shoot the bullet wherever the enemy is pointing
+        Instantiate(bullet, shootPos.position, transform.rotation);
+        yield return new WaitForSeconds(shootRate);
+
+        isShooting = false;
+    }
 
     public void takeDamage(int amount)
     {
-        StartCoroutine(flashRed());
         HP -= amount;
+        StartCoroutine(flashRed());
+        agent.SetDestination(GameManager.Instance.player.transform.position);
 
         if (HP <= 0)
         {
