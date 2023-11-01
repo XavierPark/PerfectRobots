@@ -478,7 +478,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &450691557
 RectTransform:
   m_ObjectHideFlags: 0
@@ -611,6 +611,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robot Shield Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6171626574184662394, guid: c8aef1a5ad7763a4591a0f5c068b95f8, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 4075917783296887175, guid: 3bc133aec5c0aaf41a34fe1a0a66d457, type: 3}
     - target: {fileID: 7565723392159601925, guid: c8aef1a5ad7763a4591a0f5c068b95f8, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -660,6 +664,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8aef1a5ad7763a4591a0f5c068b95f8, type: 3}
+--- !u!1001 &834725731
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4075917783296887175, guid: 3bc133aec5c0aaf41a34fe1a0a66d457, type: 3}
+      propertyPath: m_Name
+      value: bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509540915859068228, guid: 3bc133aec5c0aaf41a34fe1a0a66d457, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509540915859068228, guid: 3bc133aec5c0aaf41a34fe1a0a66d457, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509540915859068228, guid: 3bc133aec5c0aaf41a34fe1a0a66d457, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509540915859068228, guid: 3bc133aec5c0aaf41a34fe1a0a66d457, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509540915859068228, guid: 3bc133aec5c0aaf41a34fe1a0a66d457, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509540915859068228, guid: 3bc133aec5c0aaf41a34fe1a0a66d457, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509540915859068228, guid: 3bc133aec5c0aaf41a34fe1a0a66d457, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509540915859068228, guid: 3bc133aec5c0aaf41a34fe1a0a66d457, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509540915859068228, guid: 3bc133aec5c0aaf41a34fe1a0a66d457, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509540915859068228, guid: 3bc133aec5c0aaf41a34fe1a0a66d457, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509540915859068228, guid: 3bc133aec5c0aaf41a34fe1a0a66d457, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3bc133aec5c0aaf41a34fe1a0a66d457, type: 3}
 --- !u!1 &923290760
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,6 +1155,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1432617625912066880, guid: 7930f91507a581740a03f1c60f8b8926, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 4075917783296887175, guid: 3bc133aec5c0aaf41a34fe1a0a66d457, type: 3}
     - target: {fileID: 8398065342847726604, guid: 7930f91507a581740a03f1c60f8b8926, type: 3}
       propertyPath: m_Name
       value: Robot Soldier Enemy
@@ -3147,6 +3216,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soldier Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8645803384620024642, guid: 8e8c764ec7950e342a3944d9b50d923a, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 4075917783296887175, guid: 3bc133aec5c0aaf41a34fe1a0a66d457, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3458,6 +3531,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1725303144 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4094335741597999711, guid: 6fce45a16bb28b340b4a062d849ef2f3, type: 3}
+  m_PrefabInstance: {fileID: 2086775580}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1949398434
 GameObject:
   m_ObjectHideFlags: 0
@@ -3502,9 +3580,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 438778e06cfe4394ba5d0fbec24808f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1725303144}
   menuActive: {fileID: 0}
-  menuPause: {fileID: 0}
+  menuPause: {fileID: 450691556}
   menuWin: {fileID: 0}
   menuMenu: {fileID: 0}
   reticlePause: {fileID: 0}
@@ -3523,9 +3601,33 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.67
       objectReference: {fileID: 0}
+    - target: {fileID: 1034289662206960478, guid: 6fce45a16bb28b340b4a062d849ef2f3, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 4075917783296887175, guid: 3bc133aec5c0aaf41a34fe1a0a66d457, type: 3}
+    - target: {fileID: 1034289662206960478, guid: 6fce45a16bb28b340b4a062d849ef2f3, type: 3}
+      propertyPath: shootDist
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1034289662206960478, guid: 6fce45a16bb28b340b4a062d849ef2f3, type: 3}
+      propertyPath: shootRate
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1034289662206960478, guid: 6fce45a16bb28b340b4a062d849ef2f3, type: 3}
+      propertyPath: shootDamage
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4094335741597999711, guid: 6fce45a16bb28b340b4a062d849ef2f3, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094335741597999711, guid: 6fce45a16bb28b340b4a062d849ef2f3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112124719303184604, guid: 6fce45a16bb28b340b4a062d849ef2f3, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6359941242663221858, guid: 6fce45a16bb28b340b4a062d849ef2f3, type: 3}
       propertyPath: m_RootOrder
