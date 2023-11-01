@@ -26,12 +26,12 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     void Start()
     {
-        GameManager.instance.UpdateGameGoal(1);
+        GameManager.Instance.UpdateGameGoal(1);
     }
 
     void Update()
     {
-        playerDir = GameManager.instance.player.transform.position - transform.position;
+        playerDir = GameManager.Instance.player.transform.position - transform.position;
 
         //if(!isShooting)
         //{
@@ -43,7 +43,7 @@ public class EnemyAI : MonoBehaviour, IDamage
             faceTarget();
         }
 
-        agent.SetDestination(GameManager.instance.player.transform.position);
+        agent.SetDestination(GameManager.Instance.player.transform.position);
     }
 
     //IEnumerator shoot()
@@ -64,7 +64,7 @@ public class EnemyAI : MonoBehaviour, IDamage
 
         if (HP <= 0)
         {
-            GameManager.instance.UpdateGameGoal(-1);
+            GameManager.Instance.UpdateGameGoal(-1);
             Destroy(gameObject);
         }
     }

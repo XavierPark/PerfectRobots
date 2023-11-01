@@ -5,7 +5,7 @@ using UnityEngine.SocialPlatforms;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    public static GameManager Instance;
     public GameObject player; //test
 
     //menus
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        instance = this;
+        Instance = this;
         endDoor = door.GetComponent<EndDoor>();
         finish = box.GetComponent<FinishLine>();
         timescaleOrig = Time.timeScale;
