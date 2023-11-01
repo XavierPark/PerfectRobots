@@ -7,6 +7,9 @@ TagManager:
   - Interactable
   - LazerBlasterSpPos
   - AmmoSpPos
+  - RobotShieldEnemy
+  - RobotSoldierEnemy
+  - SoldierEnemy
   layers:
   - Default
   - TransparentFX
