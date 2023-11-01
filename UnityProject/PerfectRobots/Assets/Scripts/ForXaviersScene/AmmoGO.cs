@@ -39,7 +39,7 @@ public class AmmoGO : MonoBehaviour
     {
         if (transform.parent == null)
         {
-            GroundObjectController.instance.Gravitate(gameObject, floatSpeed, initialPosition, rotateSpeed);
+            GroundObjectController.gbController.Gravitate(gameObject, floatSpeed, initialPosition, rotateSpeed);
         }
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GroundObjectController : MonoBehaviour
 {
-    public static GroundObjectController instance;
+    public static GroundObjectController gbController;
     public List<GameObject> groundObjectPosList;
     public GameObject[] GBtempArray;
 
@@ -12,11 +12,11 @@ public class GroundObjectController : MonoBehaviour
 
     void Awake()
     {
-        if (instance != null)
+        if (gbController != null)
         {
             Debug.LogWarning("More than one instance of GroundObjectController found!");
         }
-        instance = this;
+        gbController = this;
     }
 
     void Start()
