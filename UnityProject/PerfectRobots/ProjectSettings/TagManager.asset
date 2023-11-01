@@ -7,9 +7,8 @@ TagManager:
   - Interactable
   - LazerBlasterSpPos
   - AmmoSpPos
-  - RobotShieldEnemy
-  - RobotSoldierEnemy
-  - SoldierEnemy
+  - Enemy
+  - Environment (No DMG)
   layers:
   - Default
   - TransparentFX
@@ -18,7 +17,7 @@ TagManager:
   - Water
   - UI
   - Finish Line
-  - 
+  - Enemy
   - 
   - 
   - 
