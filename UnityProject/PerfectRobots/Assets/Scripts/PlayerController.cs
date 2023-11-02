@@ -13,22 +13,26 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     [Range(8, 30)][SerializeField] float jumpHeight;
     [Range(1, 4)][SerializeField] int jumpsMax;
     [Range(-10, -40)][SerializeField] float gravityValue;
+    
 
     [Header("----- Gun Stats -----")]
     [SerializeField] int shootDamage;
     [SerializeField] int shootDist;
     [SerializeField] float shootRate; //Changed to float so we can have faster gunfire - Dami
     [SerializeField] GameObject bullet;
-
+    
+    
     private Vector3 move;
     private Vector3 playerVelocity;
     bool isShooting;
     private bool groundedPlayer;
     private int jumpTimes;
+    int HPOrig;
 
     void Start()
     {
-        
+        HPOrig = HP;
+        spawnPlayer();
     }
 
     // Update is called once per frame
@@ -97,4 +101,17 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
         }
     }
 
+    public void spawnPlayer()
+    {
+        controller.enabled = false;
+        HP = HPOrig;
+        //updatePlayerUI();
+        //transform.position = GameManager.Instance.playerSpawnPos.transform.position;
+        controller.enabled = true;
+    }
+
+    //public void updatePlayerUI()
+    //{
+    //    GameManager.Instance.playerHPBar.fillAmount = (float)Hp / HPOrig;
+    //}
 }

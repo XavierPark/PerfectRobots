@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     string exitNow = "Get To The Exit Door!";
     float timescaleOrig;
     int enemiesRemaining;
+    public GameObject playerSpawnPos;
+    public playerController playerScript;
+
 
     //door stuff - Dami
     EndDoor endDoor;
@@ -45,8 +48,9 @@ public class GameManager : MonoBehaviour
         endDoor = door.GetComponent<EndDoor>();
         finish = box.GetComponent<FinishLine>();
         timescaleOrig = Time.timeScale;
-        player = GameObject.FindWithTag("Player");
-        
+        player = GameObject.FindWithTag("Player");        
+        playerScript = player.GetComponent<playerController>();
+        playerSpawnPos = GameObject.FindWithTag("Respawn");
     }
 
     void Start()
