@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SocialPlatforms;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,13 +13,16 @@ public class GameManager : MonoBehaviour
     public List<GameObject> groundObjectPosList;
     public GameObject[] GBtempArray;
 
+    public EventSystem events;
+    [SerializeField] GameObject eventObject;
+
+
     //menus
     [SerializeField] GameObject menuActive;
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
     [SerializeField] GameObject menuMain;
-    [SerializeField] GameObject menuMenu;
     [SerializeField] GameObject reticlePause;
     [SerializeField] TMP_Text enemyCount;
     [SerializeField] Image exitBG;
@@ -51,17 +55,19 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("More than one instance of GroundObjectController found!");
         }
         Instance = this;
+        events = eventObject.GetComponent<EventSystem>();
         endDoor = door.GetComponent<EndDoor>();
         finish = box.GetComponent<FinishLine>();
         timescaleOrig = Time.timeScale;
         player = GameObject.FindWithTag("Player");        
         playerScript = player.GetComponent<PlayerController>();
         playerSpawnPos = GameObject.FindWithTag("Respawn");
+        
     }
 
     void Start()
     {
-        //mainMenu();
+        Begin();
         GBtempArray = GameObject.FindGameObjectsWithTag("LazerBlasterSpPos");
         groundObjectPosList.AddRange(GBtempArray);
         GBtempArray = GameObject.FindGameObjectsWithTag("AmmoSpPos");
@@ -189,5 +195,14 @@ public class GameManager : MonoBehaviour
         playerDmgScreen.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         playerDmgScreen.SetActive(false);
+    }
+
+    public void Begin()
+    {
+        menuActive = events.firstSelectedGameObject;
+        menuActive.SetActive(true);
+        Time.timeScale = 0;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 }

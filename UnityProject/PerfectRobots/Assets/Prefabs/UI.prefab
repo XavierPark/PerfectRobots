@@ -283,16 +283,16 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5610928981206403747}
-  - {fileID: 5623722555858768361}
+  - {fileID: 8201301247582063658}
+  - {fileID: 128335665971572028}
   - {fileID: 1939849866884146371}
+  - {fileID: 5610928981206403747}
   - {fileID: 3141406386514287592}
   - {fileID: 194396357249960982}
   - {fileID: 5141691171838280163}
-  - {fileID: 128335665971572028}
-  - {fileID: 8201301247582063658}
+  - {fileID: 555827620913410346}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1157,6 +1157,38 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &2747349052925259672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 555827620913410346}
+  m_Layer: 0
+  m_Name: Events
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &555827620913410346
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2747349052925259672}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -616.5, y: -289.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5623722555858768361}
+  m_Father: {fileID: 6439938163112219133}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2875206933720871019
 GameObject:
   m_ObjectHideFlags: 0
@@ -3263,14 +3295,19 @@ MonoBehaviour:
   player: {fileID: 0}
   groundObjectPosList: []
   GBtempArray: []
+  eventObject: {fileID: 0}
   menuActive: {fileID: 0}
   menuPause: {fileID: 185942147134762758}
   menuWin: {fileID: 4992383310535868376}
   menuLose: {fileID: 4988055781823407648}
-  menuMenu: {fileID: 0}
+  menuMain: {fileID: 0}
   reticlePause: {fileID: 5513489484837134032}
-  enemycount: {fileID: 6025799780081733436}
+  enemyCount: {fileID: 0}
+  exitBG: {fileID: 0}
+  playerDmgScreen: {fileID: 0}
+  playerHpBar: {fileID: 0}
   getToTheChopper: {fileID: 0}
+  endGame: 0
   playerSpawnPos: {fileID: 100000, guid: 9966aa3c008742041a74ffbeb93083cd, type: 3}
   playerScript: {fileID: 0}
   door: {fileID: 1945500173880598, guid: e8d67716b3656432d914de36d1184d45, type: 3}
@@ -3314,11 +3351,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5500367098169281271}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -616.5, y: -289.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6439938163112219133}
+  m_Father: {fileID: 555827620913410346}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6274470045789770676
