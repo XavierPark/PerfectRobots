@@ -13,9 +13,6 @@ public class GameManager : MonoBehaviour
     public List<GameObject> groundObjectPosList;
     public GameObject[] GBtempArray;
 
-    public EventSystem events;
-    [SerializeField] GameObject eventObject;
-
 
     //menus
     [SerializeField] GameObject menuActive;
@@ -55,7 +52,6 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("More than one instance of GroundObjectController found!");
         }
         Instance = this;
-        events = eventObject.GetComponent<EventSystem>();
         endDoor = door.GetComponent<EndDoor>();
         finish = box.GetComponent<FinishLine>();
         timescaleOrig = Time.timeScale;
@@ -199,7 +195,7 @@ public class GameManager : MonoBehaviour
 
     public void Begin()
     {
-        menuActive = events.firstSelectedGameObject;
+        menuActive = menuMain;
         menuActive.SetActive(true);
         Time.timeScale = 0;
         Cursor.visible = true;

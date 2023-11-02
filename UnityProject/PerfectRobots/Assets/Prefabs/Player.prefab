@@ -30,13 +30,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4094335741597999711}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.9909957, y: 0.84, z: 1.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 137900733646172083}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4491077127740023999
 MeshFilter:
@@ -150,16 +150,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 6310997739668289448}
-  shootPos: {fileID: 0}
-  HP: 0
+  shootPos: {fileID: 2507044518282795245}
+  HP: 5
   playerSpeed: 8
   jumpHeight: 1
   jumpsMax: 0
   gravityValue: -10
-  shootDamage: 0
-  shootDist: 0
-  shootRate: 0
-  bullet: {fileID: 0}
+  shootDamage: 1
+  shootDist: 20
+  shootRate: 0.4
+  bullet: {fileID: 4075917783296887175, guid: 3bc133aec5c0aaf41a34fe1a0a66d457, type: 3}
 --- !u!54 &7599029481544393044
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -182,8 +182,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -358,6 +358,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f3db8c3aa46eb94d8a5588a02a15389, type: 3}
+--- !u!4 &2507044518282795245 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3986146597722345385, guid: 6f3db8c3aa46eb94d8a5588a02a15389, type: 3}
+  m_PrefabInstance: {fileID: 1556957405404288836}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2852643822680869473 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3606764223026322725, guid: 6f3db8c3aa46eb94d8a5588a02a15389, type: 3}
