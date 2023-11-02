@@ -32,7 +32,7 @@ public class LazerBlasterGO : MonoBehaviour, Interactable
 
     public void itemUsed()
     {
-        GroundObjectController.gbController.itemUsedGBC(gameObject, sphereCollider);
+        GameManager.Instance.itemUsedGBC(gameObject, sphereCollider);
     }
 
     public void Start()
@@ -57,7 +57,7 @@ public class LazerBlasterGO : MonoBehaviour, Interactable
     {
         if (transform.parent == null)
         {
-            GroundObjectController.gbController.Gravitate(gameObject, floatSpeed, initialPosition, rotateSpeed);
+            GameManager.Instance.Gravitate(gameObject, floatSpeed, initialPosition, rotateSpeed);
         }
     }
     public void useItem()

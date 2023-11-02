@@ -13071,6 +13071,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1725303144}
+  groundObjectPosList: []
+  GBtempArray: []
   menuActive: {fileID: 0}
   menuPause: {fileID: 450691556}
   menuWin: {fileID: 0}
