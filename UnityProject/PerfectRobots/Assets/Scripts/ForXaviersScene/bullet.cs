@@ -26,12 +26,7 @@ public class bullet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.isTrigger) 
-        {
-            if(other.gameObject.CompareTag("Enemy")) 
-            {
                 return; 
-            }
-        }
 
         IDamage damageable = other.GetComponent<IDamage>();
 

@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -24,7 +22,6 @@ public class EnemyAI : MonoBehaviour, IDamage
     Vector3 playerDir;
     bool isShooting;
     bool playerInRange;
-    Material material;
 
     void Start()
     {
