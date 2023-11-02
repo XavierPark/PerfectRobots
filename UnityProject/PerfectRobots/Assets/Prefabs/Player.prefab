@@ -150,10 +150,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 6310997739668289448}
-  gravityValue: -10
+  shootPos: {fileID: 0}
+  HP: 0
   playerSpeed: 8
   jumpHeight: 1
-  HP: 0
+  jumpsMax: 0
+  gravityValue: -10
   shootDamage: 0
   shootDist: 0
   shootRate: 0
@@ -215,7 +217,8 @@ Transform:
   m_LocalPosition: {x: 0.01, y: 0.16000003, z: -0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2852643822680869473}
   m_Father: {fileID: 6359941242663221858}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -294,3 +297,69 @@ MonoBehaviour:
   vertMin: -90
   vertMax: 90
   invert_y: 0
+--- !u!1001 &1556957405404288836
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 137900733646172083}
+    m_Modifications:
+    - target: {fileID: 3606764223026322725, guid: 6f3db8c3aa46eb94d8a5588a02a15389, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3606764223026322725, guid: 6f3db8c3aa46eb94d8a5588a02a15389, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.49471116
+      objectReference: {fileID: 0}
+    - target: {fileID: 3606764223026322725, guid: 6f3db8c3aa46eb94d8a5588a02a15389, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5241667
+      objectReference: {fileID: 0}
+    - target: {fileID: 3606764223026322725, guid: 6f3db8c3aa46eb94d8a5588a02a15389, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.078964
+      objectReference: {fileID: 0}
+    - target: {fileID: 3606764223026322725, guid: 6f3db8c3aa46eb94d8a5588a02a15389, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99807525
+      objectReference: {fileID: 0}
+    - target: {fileID: 3606764223026322725, guid: 6f3db8c3aa46eb94d8a5588a02a15389, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.020861398
+      objectReference: {fileID: 0}
+    - target: {fileID: 3606764223026322725, guid: 6f3db8c3aa46eb94d8a5588a02a15389, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.05838877
+      objectReference: {fileID: 0}
+    - target: {fileID: 3606764223026322725, guid: 6f3db8c3aa46eb94d8a5588a02a15389, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0012204889
+      objectReference: {fileID: 0}
+    - target: {fileID: 3606764223026322725, guid: 6f3db8c3aa46eb94d8a5588a02a15389, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -2.395
+      objectReference: {fileID: 0}
+    - target: {fileID: 3606764223026322725, guid: 6f3db8c3aa46eb94d8a5588a02a15389, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -96.696
+      objectReference: {fileID: 0}
+    - target: {fileID: 3606764223026322725, guid: 6f3db8c3aa46eb94d8a5588a02a15389, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5651441450910739591, guid: 6f3db8c3aa46eb94d8a5588a02a15389, type: 3}
+      propertyPath: m_Name
+      value: LowPoly Scifi_Gun 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6f3db8c3aa46eb94d8a5588a02a15389, type: 3}
+--- !u!4 &2852643822680869473 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3606764223026322725, guid: 6f3db8c3aa46eb94d8a5588a02a15389, type: 3}
+  m_PrefabInstance: {fileID: 1556957405404288836}
+  m_PrefabAsset: {fileID: 0}

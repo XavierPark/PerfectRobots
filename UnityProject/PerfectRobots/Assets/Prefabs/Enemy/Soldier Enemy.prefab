@@ -1037,7 +1037,7 @@ Transform:
   - {fileID: 7056256335781221648}
   - {fileID: 2413922155761364808}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8645803384620024642
 MonoBehaviour:
@@ -1055,7 +1055,7 @@ MonoBehaviour:
   agent: {fileID: 1067258738016301727}
   shootPos: {fileID: 4772383805076712180}
   headPos: {fileID: 5738262958243790632}
-  HP: 2
+  HP: 4
   playerFaceSpeed: 7
   bullet: {fileID: 4075917783296887175, guid: 3bc133aec5c0aaf41a34fe1a0a66d457, type: 3}
   shootRate: 0.5

@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
 {
     [Header("----- Components -----")]
     [SerializeField] CharacterController controller;
+    [SerializeField] Transform shootPos;
 
     [Header("----- Player Stats -----")]
     [Range(1, 10)][SerializeField] int HP;
@@ -83,7 +84,7 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
         if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
         {
             //Commenting this out to see if thats why my glass will not work -Dami
-            Instantiate(bullet, hit.point, bullet.transform.rotation);
+            Instantiate(bullet, shootPos.position, transform.rotation);
             IDamage damageable = hit.collider.GetComponent<IDamage>();
 
             if (hit.transform != transform && damageable != null)
