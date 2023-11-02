@@ -5,7 +5,7 @@ using UnityEngine.SocialPlatforms;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    public static GameManager Instance;
     public GameObject player; //test
 
     //menus
@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject menuMenu;
     [SerializeField] GameObject reticlePause;
 
-    public bool isPaused;
     float timescaleOrig;
     int enemiesRemaining;
 
@@ -27,11 +26,11 @@ public class GameManager : MonoBehaviour
     static private int floorLevelMax = 1;
     int currFloorFinish;
 
-    
+    public bool isPaused;
 
     void Awake()
     {
-        instance = this;
+        Instance = this;
         endDoor = door.GetComponent<EndDoor>();
         finish = box.GetComponent<FinishLine>();
         timescaleOrig = Time.timeScale;
@@ -42,10 +41,9 @@ public class GameManager : MonoBehaviour
     {
         if(Input.GetButtonDown("Cancel") && menuActive == null)
         {
-            statePause();
-            menuActive = menuPause;
+            isPaused = !isPaused;
             menuPause.SetActive(isPaused);
-            //reticlePause.SetActive(!isPaused);
+            reticlePause.SetActive(!isPaused);
 
         }
     }

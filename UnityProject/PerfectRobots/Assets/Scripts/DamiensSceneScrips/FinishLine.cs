@@ -8,7 +8,7 @@ public class FinishLine : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameManager.instance.ExitDoorCondition();
+            GameManager.Instance.ExitDoorCondition();
         }
     }
 }

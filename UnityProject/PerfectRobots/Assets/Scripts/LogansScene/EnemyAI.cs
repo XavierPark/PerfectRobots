@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-//using UnityEditor.Build.Content;
+using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -27,14 +27,14 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     void Start()
     {
-        GameManager.instance.UpdateGameGoal(1);
+        GameManager.Instance.UpdateGameGoal(1);
     }
 
     void Update()
     {
         if (playerInRange)
         {
-            playerDir = GameManager.instance.player.transform.position - transform.position;
+            playerDir = GameManager.Instance.player.transform.position - transform.position;
 
             if (!isShooting)
             {
@@ -46,7 +46,7 @@ public class EnemyAI : MonoBehaviour, IDamage
                 faceTarget();
             }
 
-            agent.SetDestination(GameManager.instance.player.transform.position);
+            agent.SetDestination(GameManager.Instance.player.transform.position);
         }
     }
 
@@ -81,11 +81,11 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         HP -= amount;
         StartCoroutine(flashRed());
-        agent.SetDestination(GameManager.instance.player.transform.position);
+        agent.SetDestination(GameManager.Instance.player.transform.position);
 
         if (HP <= 0)
         {
-            GameManager.instance.UpdateGameGoal(-1);
+            GameManager.Instance.UpdateGameGoal(-1);
             Destroy(gameObject);
         }
     }
