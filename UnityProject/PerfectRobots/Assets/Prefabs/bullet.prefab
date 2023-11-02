@@ -102,7 +102,7 @@ TrailRenderer:
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.4
+    widthMultiplier: 0.3
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -115,6 +115,24 @@ TrailRenderer:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.36216217
+        value: 0.7083333
+        inSlope: -1.1419754
+        outSlope: -1.1419754
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.67164177
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0.4722222
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -176,6 +194,7 @@ MonoBehaviour:
   speed: 140
   destroyTime: 3
   damage: 1
+  hitList: []
 --- !u!54 &8192849053744754211
 Rigidbody:
   m_ObjectHideFlags: 0

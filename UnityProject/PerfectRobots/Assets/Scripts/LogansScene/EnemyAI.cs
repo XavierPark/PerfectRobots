@@ -93,10 +93,9 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     IEnumerator flashRed()
     {
-        material = model.material;
         model.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        model.material = material;
+        model.material.color = Color.white;
     }
 
     void faceTarget()

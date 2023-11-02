@@ -32,13 +32,18 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     void Start()
     {
         HPOrig = HP;
-        spawnPlayer();
+        SpawnPlayer();
     }
 
     // Update is called once per frame
     void Update()
     {
 
+        Movement();
+    }
+
+    void Movement()
+    {
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDist);
 
         if (Input.GetButton("Shoot") && !isShooting)
@@ -94,6 +99,8 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     public void takeDamage(int amount)
     {
         HP -= amount;
+        updatePlayerUI();
+        StartCoroutine(GameManager.Instance.PlayerFlashDamage());
 
         if (HP <= 0)
         {
@@ -101,17 +108,17 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
         }
     }
 
-    public void spawnPlayer()
+    public void SpawnPlayer()
     {
         controller.enabled = false;
         HP = HPOrig;
-        //updatePlayerUI();
-        //transform.position = GameManager.Instance.playerSpawnPos.transform.position;
+        updatePlayerUI();
+        transform.position = GameManager.Instance.playerSpawnPos.transform.position;
         controller.enabled = true;
     }
 
-    //public void updatePlayerUI()
-    //{
-    //    GameManager.Instance.playerHPBar.fillAmount = (float)Hp / HPOrig;
-    //}
+    public void updatePlayerUI()
+    {
+        GameManager.Instance.playerHpBar.fillAmount = (float)HP / HPOrig;
+    }
 }

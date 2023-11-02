@@ -9,6 +9,8 @@ TagManager:
   - AmmoSpPos
   - Enemy
   - Environment (No DMG)
+  - ImageBG
+  - End Text
   layers:
   - Default
   - TransparentFX

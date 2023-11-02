@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,14 +19,18 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject menuLose;
     [SerializeField] GameObject menuMenu;
     [SerializeField] GameObject reticlePause;
-    [SerializeField] TMP_Text enemycount;
-    [SerializeField] TMP_Text getToTheChopper;
+    [SerializeField] TMP_Text enemyCount;
+    [SerializeField] Image exitBG;
+    [SerializeField] GameObject playerDmgScreen;
 
-    string exitNow = "Get To The Exit Door!";
+    public Image playerHpBar;
+    [SerializeField] TMP_Text getToTheChopper;
+    public bool endGame;
+
     float timescaleOrig;
     int enemiesRemaining;
     public GameObject playerSpawnPos;
-    public playerController playerScript;
+    public PlayerController playerScript;
 
 
     //door stuff - Dami
@@ -49,7 +54,7 @@ public class GameManager : MonoBehaviour
         finish = box.GetComponent<FinishLine>();
         timescaleOrig = Time.timeScale;
         player = GameObject.FindWithTag("Player");        
-        playerScript = player.GetComponent<playerController>();
+        playerScript = player.GetComponent<PlayerController>();
         playerSpawnPos = GameObject.FindWithTag("Respawn");
     }
 
@@ -91,11 +96,10 @@ public class GameManager : MonoBehaviour
     public void UpdateGameGoal(int amount)
     {
         enemiesRemaining += amount;
-        enemycount.text += enemiesRemaining.ToString("0");
+        enemyCount.text = enemiesRemaining.ToString("0");
 
         if(enemiesRemaining <= 0)
         {
-            getToTheChopper.text = exitNow.ToString();
             StartCoroutine(endDoor.OpenDoors());
         }
     }
@@ -169,5 +173,12 @@ public class GameManager : MonoBehaviour
             calledBy.transform.position = newPosition;
             calledBy.transform.Rotate(Vector3.forward * rotateSpeed * Time.deltaTime);
         }
+    }
+
+    public IEnumerator PlayerFlashDamage()
+    {
+        playerDmgScreen.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        playerDmgScreen.SetActive(false);
     }
 }
