@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Begin();
+        //Begin();
         GBtempArray = GameObject.FindGameObjectsWithTag("LazerBlasterSpPos");
         groundObjectPosList.AddRange(GBtempArray);
         GBtempArray = GameObject.FindGameObjectsWithTag("AmmoSpPos");
@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
             statePause();
             menuActive = menuPause;
             menuPause.SetActive(isPaused);
-            reticlePause.SetActive(!isPaused);
+            //reticlePause.SetActive(!isPaused);
 
         }
     }
