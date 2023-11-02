@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour, IDamage
 {
     [Header("----- Components -----")]
-    [SerializeField] SkinnedMeshRenderer model;
+    [SerializeField] Renderer model;
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform shootPos;
     [SerializeField] Transform headPos;
