@@ -291,7 +291,7 @@ RectTransform:
   - {fileID: 128335665971572028}
   - {fileID: 8201301247582063658}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2922,8 +2922,10 @@ MonoBehaviour:
   reticlePause: {fileID: 5513489484837134032}
   enemycount: {fileID: 6025799780081733436}
   getToTheChopper: {fileID: 0}
+  playerSpawnPos: {fileID: 100000, guid: 9966aa3c008742041a74ffbeb93083cd, type: 3}
+  playerScript: {fileID: 0}
   door: {fileID: 1945500173880598, guid: e8d67716b3656432d914de36d1184d45, type: 3}
-  box: {fileID: 0}
+  box: {fileID: 5265601247041649133, guid: 4c066f1106be09a4dbb1a80ce55ea47f, type: 3}
   isPaused: 0
 --- !u!114 &2511627471209737476
 MonoBehaviour:
