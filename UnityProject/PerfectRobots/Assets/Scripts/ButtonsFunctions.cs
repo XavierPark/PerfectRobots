@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class ButtonFunctions : MonoBehaviour
 {
+    private void Start()
+    {
+        //GameManager.Instance.Begin();
+    }
     public void resume()
     {
         GameManager.Instance.stateUnpause();
@@ -13,7 +17,6 @@ public class ButtonFunctions : MonoBehaviour
     public void restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        GameManager.Instance.events.firstSelectedGameObject.SetActive(false);
         GameManager.Instance.stateUnpause();
     }
 
@@ -27,4 +30,5 @@ public class ButtonFunctions : MonoBehaviour
     {
         Application.Quit();
     }
+
 }
