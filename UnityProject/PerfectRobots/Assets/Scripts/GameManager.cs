@@ -2,19 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public GameObject player; //test
+    public List<GameObject> groundObjectPosList;
+    public GameObject[] GBtempArray;
 
     //menus
     [SerializeField] GameObject menuActive;
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin;
+    [SerializeField] GameObject menuLose;
     [SerializeField] GameObject menuMenu;
     [SerializeField] GameObject reticlePause;
+    [SerializeField] TMP_Text enemycount;
+    [SerializeField] TMP_Text getToTheChopper;
 
+    string exitNow = "Get To The Exit Door!";
     float timescaleOrig;
     int enemiesRemaining;
 
@@ -30,6 +37,10 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        if (Instance != null)
+        {
+            Debug.LogWarning("More than one instance of GroundObjectController found!");
+        }
         Instance = this;
         endDoor = door.GetComponent<EndDoor>();
         finish = box.GetComponent<FinishLine>();
@@ -37,11 +48,36 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindWithTag("Player");
     }
 
+    void Start()
+    {
+        GBtempArray = GameObject.FindGameObjectsWithTag("LazerBlasterSpPos");
+        groundObjectPosList.AddRange(GBtempArray);
+        GBtempArray = GameObject.FindGameObjectsWithTag("AmmoSpPos");
+        groundObjectPosList.AddRange(GBtempArray);
+
+        foreach (GameObject obj in groundObjectPosList)
+        {
+            if (obj.CompareTag("LazerBlasterSpPos"))
+            {
+                Vector3 spPos = obj.transform.position;
+                Quaternion spRot = obj.transform.rotation;
+                instantiateGroundObject(Inventory.instance.LazerBlasterGO, spPos, spRot);
+            }
+            else if (obj.CompareTag("AmmoSpPos"))
+            {
+                Vector3 spPos = obj.transform.position;
+                Quaternion spRot = obj.transform.rotation;
+                instantiateGroundObject(Inventory.instance.AmmoGO, spPos, spRot);
+            }
+        }
+    }
+
     private void Update()
     {
         if(Input.GetButtonDown("Cancel") && menuActive == null)
         {
-            isPaused = !isPaused;
+            statePause();
+            menuActive = menuPause;
             menuPause.SetActive(isPaused);
             reticlePause.SetActive(!isPaused);
 
@@ -50,9 +86,11 @@ public class GameManager : MonoBehaviour
     public void UpdateGameGoal(int amount)
     {
         enemiesRemaining += amount;
+        enemycount.text = enemiesRemaining.ToString("0");
 
         if(enemiesRemaining <= 0)
         {
+            getToTheChopper.text = exitNow.ToString();
             StartCoroutine(endDoor.OpenDoors());
         }
     }
@@ -90,5 +128,41 @@ public class GameManager : MonoBehaviour
         menuActive = menuWin;
         menuActive.SetActive(true);
         currFloorFinish = 0;
+    }
+
+    public void YouLose()
+    {
+        statePause();
+        menuActive = menuLose;
+        menuActive.SetActive(true);
+        currFloorFinish = 0;
+    }
+
+    public void instantiateGroundObject(GameObject obj, Vector3 spPos, Quaternion spRot)
+    {
+        Instantiate(obj, spPos, spRot);
+    }
+
+    public void itemUsedGBC(GameObject calledBy, SphereCollider collider)
+    {
+        if (calledBy.transform.parent == null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            collider.enabled = false;
+        }
+    }
+
+    public void Gravitate(GameObject calledBy, float floatSpeed, Vector3 initialPosition, float rotateSpeed)
+    {
+        if (transform.parent == null)
+        {
+            float floatOffset = Mathf.Sin(Time.time * floatSpeed) * 0.1f;
+            Vector3 newPosition = initialPosition + new Vector3(0, floatOffset, 0);
+            calledBy.transform.position = newPosition;
+            calledBy.transform.Rotate(Vector3.forward * rotateSpeed * Time.deltaTime);
+        }
     }
 }

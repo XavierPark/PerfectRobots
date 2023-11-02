@@ -16,6 +16,11 @@ public class ButtonFunctions : MonoBehaviour
         GameManager.Instance.stateUnpause();
     }
 
+    public void Respawn()
+    {
+
+    }
+
     public void quit()
     {
         Application.Quit();
