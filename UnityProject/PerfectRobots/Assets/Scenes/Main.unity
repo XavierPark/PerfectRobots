@@ -3379,7 +3379,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8201301247582063658, guid: 56bfe08ab52ae1c4a93577e90cdf4822, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -33
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8694032995859298619, guid: 56bfe08ab52ae1c4a93577e90cdf4822, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -17321,6 +17321,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4815251036570308737, guid: 18b7382c71de5b34ca190cd8b845d904, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: aa13371a9adba7b4f8317b6c9bb345fc, type: 2}
     - target: {fileID: 7514976983171876021, guid: 18b7382c71de5b34ca190cd8b845d904, type: 3}
       propertyPath: headPos
       value: 
@@ -18274,6 +18278,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4815251036570308737, guid: 18b7382c71de5b34ca190cd8b845d904, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: aa13371a9adba7b4f8317b6c9bb345fc, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
