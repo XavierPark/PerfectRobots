@@ -24,6 +24,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     Vector3 playerDir;
     bool isShooting;
     bool playerInRange;
+    Material material;
 
     void Start()
     {
@@ -92,9 +93,10 @@ public class EnemyAI : MonoBehaviour, IDamage
 
     IEnumerator flashRed()
     {
+        material = model.material;
         model.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        model.material.color = Color.white;
+        model.material = material;
     }
 
     void faceTarget()

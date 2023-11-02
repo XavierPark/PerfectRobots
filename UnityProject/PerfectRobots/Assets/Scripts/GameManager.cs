@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
         finish = box.GetComponent<FinishLine>();
         timescaleOrig = Time.timeScale;
         player = GameObject.FindWithTag("Player");
+        
     }
 
     void Start()
