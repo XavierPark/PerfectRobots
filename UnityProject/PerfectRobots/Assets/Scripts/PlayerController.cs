@@ -6,12 +6,11 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
 {
     [Header("----- Components -----")]
     [SerializeField] CharacterController controller;
-    [SerializeField] Transform shootPos;
 
     [Header("----- Player Stats -----")]
     [Range(1, 10)][SerializeField] int HP;
     [Range(2, 8)][SerializeField] float playerSpeed;
-    [Range(1, 30)][SerializeField] float jumpHeight;
+    [Range(8, 30)][SerializeField] float jumpHeight;
     [Range(1, 4)][SerializeField] int jumpsMax;
     [Range(-10, -40)][SerializeField] float gravityValue;
     
@@ -33,7 +32,7 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     void Start()
     {
         HPOrig = HP;
-        SpawnPlayer();
+        spawnPlayer();
     }
 
     // Update is called once per frame
@@ -79,8 +78,9 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
         if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
         {
             //Commenting this out to see if thats why my glass will not work -Dami
+            Instantiate(bullet, hit.point, bullet.transform.rotation);
             IDamage damageable = hit.collider.GetComponent<IDamage>();
-            Instantiate(bullet, shootPos.position, transform.rotation);
+
             if (hit.transform != transform && damageable != null)
             {
                 damageable.takeDamage(shootDamage);
@@ -101,11 +101,12 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
         }
     }
 
-    public void SpawnPlayer()
+    public void spawnPlayer()
     {
         controller.enabled = false;
         HP = HPOrig;
-        transform.position = GameManager.Instance.playerSpawnPos.transform.position;
+        //updatePlayerUI();
+        //transform.position = GameManager.Instance.playerSpawnPos.transform.position;
         controller.enabled = true;
     }
 
