@@ -94,5 +94,10 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     public void takeDamage(int amount)
     {
         HP -= amount;
+
+        if (HP <= 0)
+        {
+            GameManager.Instance.YouLose();
+        }
     }
 }

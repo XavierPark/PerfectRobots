@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,9 +15,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject menuActive;
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin;
+    [SerializeField] GameObject menuLose;
     [SerializeField] GameObject menuMenu;
     [SerializeField] GameObject reticlePause;
+    [SerializeField] TMP_Text enemycount;
+    [SerializeField] TMP_Text getToTheChopper;
 
+    string exitNow = "Get To The Exit Door!";
     float timescaleOrig;
     int enemiesRemaining;
 
@@ -81,9 +86,11 @@ public class GameManager : MonoBehaviour
     public void UpdateGameGoal(int amount)
     {
         enemiesRemaining += amount;
+        enemycount.text = enemiesRemaining.ToString("0");
 
         if(enemiesRemaining <= 0)
         {
+            getToTheChopper.text = exitNow.ToString();
             StartCoroutine(endDoor.OpenDoors());
         }
     }
@@ -119,6 +126,14 @@ public class GameManager : MonoBehaviour
     {
         statePause();
         menuActive = menuWin;
+        menuActive.SetActive(true);
+        currFloorFinish = 0;
+    }
+
+    public void YouLose()
+    {
+        statePause();
+        menuActive = menuLose;
         menuActive.SetActive(true);
         currFloorFinish = 0;
     }
