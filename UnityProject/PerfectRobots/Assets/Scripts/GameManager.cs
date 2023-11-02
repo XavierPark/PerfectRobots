@@ -13,6 +13,10 @@ public class GameManager : MonoBehaviour
     public List<GameObject> groundObjectPosList;
     public GameObject[] GBtempArray;
 
+    public EventSystem events;
+    [SerializeField] GameObject eventObject;
+
+
     //menus
     [SerializeField] GameObject menuActive;
     [SerializeField] GameObject menuPause;
@@ -51,6 +55,7 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("More than one instance of GroundObjectController found!");
         }
         Instance = this;
+        events = eventObject.GetComponent<EventSystem>();
         endDoor = door.GetComponent<EndDoor>();
         finish = box.GetComponent<FinishLine>();
         timescaleOrig = Time.timeScale;
@@ -62,6 +67,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Begin();
         GBtempArray = GameObject.FindGameObjectsWithTag("LazerBlasterSpPos");
         groundObjectPosList.AddRange(GBtempArray);
         GBtempArray = GameObject.FindGameObjectsWithTag("AmmoSpPos");
@@ -86,7 +92,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Cancel") && menuActive == null)
+        if(Input.GetButtonDown("Cancel") && menuActive == null)
         {
             statePause();
             menuActive = menuPause;
@@ -131,6 +137,13 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         menuActive.SetActive(false);
         menuActive = null;
+    }
+
+    public void mainMenu()
+    {
+        statePause();
+        menuActive = menuMain;
+        menuActive.SetActive(true);
     }
 
     public void YouWin()
@@ -186,7 +199,7 @@ public class GameManager : MonoBehaviour
 
     public void Begin()
     {
-        menuActive = menuMain;
+        menuActive = events.firstSelectedGameObject;
         menuActive.SetActive(true);
         Time.timeScale = 0;
         Cursor.visible = true;
