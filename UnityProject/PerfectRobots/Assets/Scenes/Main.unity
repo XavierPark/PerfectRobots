@@ -2554,6 +2554,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 3808139688884713104, guid: 56bfe08ab52ae1c4a93577e90cdf4822, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988055781823407648, guid: 56bfe08ab52ae1c4a93577e90cdf4822, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5102927979406138804, guid: 56bfe08ab52ae1c4a93577e90cdf4822, type: 3}
       propertyPath: box
       value: 
@@ -2570,6 +2578,14 @@ PrefabInstance:
       propertyPath: playerSpawnPos
       value: 
       objectReference: {fileID: 206824314}
+    - target: {fileID: 6025799780081733436, guid: 56bfe08ab52ae1c4a93577e90cdf4822, type: 3}
+      propertyPath: m_text
+      value: Enemies Remaining
+      objectReference: {fileID: 0}
+    - target: {fileID: 6025799780081733436, guid: 56bfe08ab52ae1c4a93577e90cdf4822, type: 3}
+      propertyPath: m_margin.x
+      value: -12.421814
+      objectReference: {fileID: 0}
     - target: {fileID: 6439938163112219133, guid: 56bfe08ab52ae1c4a93577e90cdf4822, type: 3}
       propertyPath: m_Pivot.x
       value: 0
