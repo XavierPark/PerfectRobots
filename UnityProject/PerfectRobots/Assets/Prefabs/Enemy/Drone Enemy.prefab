@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8993098022040622176}
   - component: {fileID: 2431876328924435058}
   - component: {fileID: 8106543255204016355}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PA_DroneWingLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3358888985068966076}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shoot Pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 8728045746213595340}
   - component: {fileID: 1623568333394504773}
   - component: {fileID: 2291142542044015666}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PA_DroneBladeLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 115742107870962767}
   - component: {fileID: 4356020133973283761}
   - component: {fileID: 4242055330757918033}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PA_DroneWingRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 3874911811038994759}
   - component: {fileID: 2771378404658792029}
   - component: {fileID: 131755620815701456}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PA_DroneBladeRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,9 +379,9 @@ GameObject:
   - component: {fileID: 5723399714592288138}
   - component: {fileID: 3017668310476666274}
   - component: {fileID: 5894916967074529223}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Drone Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -519,7 +519,7 @@ GameObject:
   - component: {fileID: 5507272703980899170}
   - component: {fileID: 7980425941012612727}
   - component: {fileID: 6307816749632358552}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PA_Drone
   m_TagString: Untagged
   m_Icon: {fileID: 0}

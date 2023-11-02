@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6310997739668289448}
   - component: {fileID: 1034289662206960478}
   - component: {fileID: 7599029481544393044}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 9105245150742307680}
   - component: {fileID: 5111195973798269094}
   - component: {fileID: 2902728398556743449}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -352,6 +352,14 @@ PrefabInstance:
     - target: {fileID: 5651441450910739591, guid: 6f3db8c3aa46eb94d8a5588a02a15389, type: 3}
       propertyPath: m_Name
       value: LowPoly Scifi_Gun 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5651441450910739591, guid: 6f3db8c3aa46eb94d8a5588a02a15389, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8462656508250949530, guid: 6f3db8c3aa46eb94d8a5588a02a15389, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
