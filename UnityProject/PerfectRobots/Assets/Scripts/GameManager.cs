@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
+    [SerializeField] GameObject menuMain;
     [SerializeField] GameObject menuMenu;
     [SerializeField] GameObject reticlePause;
     [SerializeField] TMP_Text enemyCount;
@@ -60,6 +61,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        //mainMenu();
         GBtempArray = GameObject.FindGameObjectsWithTag("LazerBlasterSpPos");
         groundObjectPosList.AddRange(GBtempArray);
         GBtempArray = GameObject.FindGameObjectsWithTag("AmmoSpPos");
@@ -129,6 +131,13 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         menuActive.SetActive(false);
         menuActive = null;
+    }
+
+    public void mainMenu()
+    {
+        statePause();
+        menuActive = menuMain;
+        menuActive.SetActive(true);
     }
 
     public void YouWin()
