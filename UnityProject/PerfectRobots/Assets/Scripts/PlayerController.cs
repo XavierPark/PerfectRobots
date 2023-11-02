@@ -8,26 +8,31 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     [SerializeField] CharacterController controller;
 
     [Header("----- Player Stats -----")]
-    [Range(-10, -40)][SerializeField] float gravityValue;
+    [Range(1, 10)][SerializeField] int HP;
     [Range(2, 8)][SerializeField] float playerSpeed;
-    [SerializeField] float jumpHeight;
-    [Range(1,10)][SerializeField] float HP;
+    [Range(8, 30)][SerializeField] float jumpHeight;
+    [Range(1, 4)][SerializeField] int jumpsMax;
+    [Range(-10, -40)][SerializeField] float gravityValue;
+    
 
     [Header("----- Gun Stats -----")]
     [SerializeField] int shootDamage;
     [SerializeField] int shootDist;
     [SerializeField] float shootRate; //Changed to float so we can have faster gunfire - Dami
     [SerializeField] GameObject bullet;
-
+    
+    
     private Vector3 move;
     private Vector3 playerVelocity;
     bool isShooting;
     private bool groundedPlayer;
     private int jumpTimes;
+    int HPOrig;
 
     void Start()
     {
-        
+        HPOrig = HP;
+        spawnPlayer();
     }
 
     // Update is called once per frame
@@ -44,26 +49,23 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
 
 
         groundedPlayer = controller.isGrounded;
+
         if (groundedPlayer && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;
             jumpTimes = 0;
         }
 
-        Vector3 move = Input.GetAxis("Horizontal") * transform.right +
-                        Input.GetAxis("Vertical") * transform.forward;
+        move = Input.GetAxis("Horizontal") * transform.right +
+               Input.GetAxis("Vertical") * transform.forward;
         controller.Move(move * Time.deltaTime * playerSpeed);
 
 
-
         // Changes the height position of the player..
-        if (Input.GetButtonDown("Jump") && groundedPlayer)
+        if (Input.GetButtonDown("Jump") && jumpTimes < jumpsMax)
         {
             playerVelocity.y = jumpHeight;
             jumpTimes++;
-
-
-
         }
 
         playerVelocity.y += gravityValue * Time.deltaTime;
@@ -84,13 +86,11 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
                 damageable.takeDamage(shootDamage);
 
             }
-
-
         }
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
-
     }
+
     public void takeDamage(int amount)
     {
         HP -= amount;
@@ -100,4 +100,18 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
             GameManager.Instance.YouLose();
         }
     }
+
+    public void spawnPlayer()
+    {
+        controller.enabled = false;
+        HP = HPOrig;
+        //updatePlayerUI();
+        //transform.position = GameManager.Instance.playerSpawnPos.transform.position;
+        controller.enabled = true;
+    }
+
+    //public void updatePlayerUI()
+    //{
+    //    GameManager.Instance.playerHPBar.fillAmount = (float)Hp / HPOrig;
+    //}
 }
