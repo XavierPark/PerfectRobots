@@ -3039,6 +3039,18 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 1112475996454680642, guid: 3466f068a8f52f64a9ede5cb8668aa10, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1112475996454680642, guid: 3466f068a8f52f64a9ede5cb8668aa10, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1112475996454680642, guid: 3466f068a8f52f64a9ede5cb8668aa10, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1121685280463382632, guid: 3466f068a8f52f64a9ede5cb8668aa10, type: 3}
       propertyPath: m_TagString
       value: Environment (No DMG)
@@ -3635,6 +3647,22 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Environment (No DMG)
       objectReference: {fileID: 0}
+    - target: {fileID: 2680942496283790082, guid: 3466f068a8f52f64a9ede5cb8668aa10, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2680942496283790082, guid: 3466f068a8f52f64a9ede5cb8668aa10, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2680942496283790082, guid: 3466f068a8f52f64a9ede5cb8668aa10, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2680942496283790082, guid: 3466f068a8f52f64a9ede5cb8668aa10, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2697176593743941878, guid: 3466f068a8f52f64a9ede5cb8668aa10, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
@@ -3866,6 +3894,14 @@ PrefabInstance:
     - target: {fileID: 3430327628639907076, guid: 3466f068a8f52f64a9ede5cb8668aa10, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3472641272415472473, guid: 3466f068a8f52f64a9ede5cb8668aa10, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3472641272415472473, guid: 3466f068a8f52f64a9ede5cb8668aa10, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3493645558333826045, guid: 3466f068a8f52f64a9ede5cb8668aa10, type: 3}
       propertyPath: m_TagString
@@ -4819,6 +4855,18 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 7104656159303465367, guid: 3466f068a8f52f64a9ede5cb8668aa10, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7104656159303465367, guid: 3466f068a8f52f64a9ede5cb8668aa10, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7104656159303465367, guid: 3466f068a8f52f64a9ede5cb8668aa10, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7126773091480868386, guid: 3466f068a8f52f64a9ede5cb8668aa10, type: 3}
       propertyPath: m_TagString
       value: Environment (No DMG)
@@ -5270,6 +5318,14 @@ PrefabInstance:
     - target: {fileID: 8340564128019063315, guid: 3466f068a8f52f64a9ede5cb8668aa10, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8348966299008799306, guid: 3466f068a8f52f64a9ede5cb8668aa10, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8348966299008799306, guid: 3466f068a8f52f64a9ede5cb8668aa10, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8434797549016101392, guid: 3466f068a8f52f64a9ede5cb8668aa10, type: 3}
       propertyPath: m_TagString

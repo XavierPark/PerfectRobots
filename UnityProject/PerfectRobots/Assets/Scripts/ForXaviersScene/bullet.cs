@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class bullet : MonoBehaviour
@@ -11,6 +12,8 @@ public class bullet : MonoBehaviour
     [SerializeField] int speed;
     [SerializeField] int destroyTime;
     [SerializeField] int damage;
+    [SerializeField] List<GameObject> hitList;
+
 
 
     // Start is called before the first frame update
@@ -22,9 +25,15 @@ public class bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.isTrigger) { return; }
-        IDamage damageable = other.GetComponent<IDamage>();
+        if (other.isTrigger) 
+        {
+            if(other.gameObject.CompareTag("Enemy")) 
+            {
+                return; 
+            }
+        }
 
+        IDamage damageable = other.GetComponent<IDamage>();
 
         if (damageable != null)
         {
@@ -34,7 +43,6 @@ public class bullet : MonoBehaviour
             }
         }    
         
-
         Destroy(gameObject);
     }
 }
