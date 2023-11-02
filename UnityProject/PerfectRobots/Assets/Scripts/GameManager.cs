@@ -71,7 +71,8 @@ public class GameManager : MonoBehaviour
     {
         if(Input.GetButtonDown("Cancel") && menuActive == null)
         {
-            isPaused = !isPaused;
+            statePause();
+            menuActive = menuPause;
             menuPause.SetActive(isPaused);
             reticlePause.SetActive(!isPaused);
 
@@ -121,6 +122,7 @@ public class GameManager : MonoBehaviour
         menuActive.SetActive(true);
         currFloorFinish = 0;
     }
+
     public void instantiateGroundObject(GameObject obj, Vector3 spPos, Quaternion spRot)
     {
         Instantiate(obj, spPos, spRot);
