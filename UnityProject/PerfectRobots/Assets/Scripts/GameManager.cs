@@ -105,6 +105,7 @@ public class GameManager : MonoBehaviour
         if(enemiesRemaining <= 0)
         {
             StartCoroutine(endDoor.OpenDoors());
+            //Door having stroke
         }
     }
 
