@@ -29,7 +29,7 @@ public class bullet : MonoBehaviour
                 return; 
 
         IDamage damageable = other.GetComponent<IDamage>();
-
+        
         if (damageable != null)
         {
             if (!other.gameObject.CompareTag("Enemy"))

@@ -3,23 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Interactable
-  - LazerBlasterSpPos
-  - AmmoSpPos
-  - Enemy
-  - Environment (No DMG)
-  - ImageBG
-  - End Text
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Characters
+  - 
   - Water
   - UI
-  - Finish Line
-  - Enemy
+  - 
+  - 
   - 
   - 
   - 

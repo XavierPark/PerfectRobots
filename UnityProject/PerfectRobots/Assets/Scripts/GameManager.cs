@@ -64,10 +64,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //Begin();
-        GBtempArray = GameObject.FindGameObjectsWithTag("LazerBlasterSpPos");
-        groundObjectPosList.AddRange(GBtempArray);
-        GBtempArray = GameObject.FindGameObjectsWithTag("AmmoSpPos");
-        groundObjectPosList.AddRange(GBtempArray);
+        //GBtempArray = GameObject.FindGameObjectsWithTag("LazerBlasterSpPos");
+        //groundObjectPosList.AddRange(GBtempArray);
+        //GBtempArray = GameObject.FindGameObjectsWithTag("AmmoSpPos");
+        //groundObjectPosList.AddRange(GBtempArray);
 
         foreach (GameObject obj in groundObjectPosList)
         {
