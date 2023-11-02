@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6359941242663221858}
   - component: {fileID: 4491077127740023999}
   - component: {fileID: 1476537655127669746}
+  - component: {fileID: 1034289662206960478}
   - component: {fileID: 6643472199137001675}
   - component: {fileID: 6310997739668289448}
-  - component: {fileID: 1034289662206960478}
   - component: {fileID: 7599029481544393044}
   m_Layer: 0
   m_Name: Player
@@ -88,6 +88,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1034289662206960478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4094335741597999711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd21702b77069424296948dfb107283b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 6310997739668289448}
+  HP: 0
+  playerSpeed: 8
+  jumpHeight: 1
+  jumpsMax: 0
+  gravityValue: -10
+  shootDamage: 0
+  shootDist: 0
+  shootRate: 0
+  bullet: {fileID: 0}
 --- !u!136 &6643472199137001675
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -137,27 +159,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1034289662206960478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4094335741597999711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd21702b77069424296948dfb107283b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 6310997739668289448}
-  gravityValue: -10
-  playerSpeed: 8
-  jumpHeight: 1
-  HP: 0
-  shootDamage: 0
-  shootDist: 0
-  shootRate: 0
-  bullet: {fileID: 0}
 --- !u!54 &7599029481544393044
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -180,8 +181,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0

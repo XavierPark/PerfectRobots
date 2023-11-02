@@ -7,7 +7,11 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
     public GameObject player; //test
+    public PlayerController playerScript;
+    public GameObject playerSpawnPos;
+    //Xaviers
     public List<GameObject> groundObjectPosList;
     public GameObject[] GBtempArray;
 
@@ -24,15 +28,15 @@ public class GameManager : MonoBehaviour
     string exitNow = "Get To The Exit Door!";
     float timescaleOrig;
     int enemiesRemaining;
-    public GameObject playerSpawnPos;
-    public playerController playerScript;
-
+    
 
     //door stuff - Dami
     EndDoor endDoor;
+
     [SerializeField] GameObject door;
-    FinishLine finish;
     [SerializeField] Collider box;
+
+    FinishLine finish;
     static private int floorLevelMax = 1;
     int currFloorFinish;
 
@@ -48,8 +52,8 @@ public class GameManager : MonoBehaviour
         endDoor = door.GetComponent<EndDoor>();
         finish = box.GetComponent<FinishLine>();
         timescaleOrig = Time.timeScale;
-        player = GameObject.FindWithTag("Player");        
-        playerScript = player.GetComponent<playerController>();
+        player = GameObject.FindWithTag("Player");
+        playerScript = player.GetComponent<PlayerController>();
         playerSpawnPos = GameObject.FindWithTag("Respawn");
     }
 

@@ -583,7 +583,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6076668457256641611, guid: 8e8c764ec7950e342a3944d9b50d923a, type: 3}
       propertyPath: m_RootOrder
+<<<<<<< HEAD
       value: 5
+=======
+      value: 3
+>>>>>>> parent of 0262caf (Changed Robot Shield Enemy)
       objectReference: {fileID: 0}
     - target: {fileID: 6076668457256641611, guid: 8e8c764ec7950e342a3944d9b50d923a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -629,6 +633,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soldier Enemy
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 8197204437393279399, guid: 8e8c764ec7950e342a3944d9b50d923a, type: 3}
       propertyPath: m_TagString
       value: Enemy
@@ -637,12 +642,18 @@ PrefabInstance:
       propertyPath: shootRate
       value: 0.8
       objectReference: {fileID: 0}
+=======
+>>>>>>> parent of 0262caf (Changed Robot Shield Enemy)
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e8c764ec7950e342a3944d9b50d923a, type: 3}
+<<<<<<< HEAD
 --- !u!1001 &6467303973625580834
+=======
+--- !u!1001 &2658792595925125104
+>>>>>>> parent of 0262caf (Changed Robot Shield Enemy)
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -650,6 +661,7 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< HEAD
     - target: {fileID: 176962761908028806, guid: c8aef1a5ad7763a4591a0f5c068b95f8, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -902,12 +914,70 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+=======
+    - target: {fileID: 3108705525979138882, guid: c8aef1a5ad7763a4591a0f5c068b95f8, type: 3}
+      propertyPath: m_Name
+      value: Robot Shield Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727716836372028327, guid: c8aef1a5ad7763a4591a0f5c068b95f8, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727716836372028327, guid: c8aef1a5ad7763a4591a0f5c068b95f8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727716836372028327, guid: c8aef1a5ad7763a4591a0f5c068b95f8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727716836372028327, guid: c8aef1a5ad7763a4591a0f5c068b95f8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727716836372028327, guid: c8aef1a5ad7763a4591a0f5c068b95f8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727716836372028327, guid: c8aef1a5ad7763a4591a0f5c068b95f8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727716836372028327, guid: c8aef1a5ad7763a4591a0f5c068b95f8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727716836372028327, guid: c8aef1a5ad7763a4591a0f5c068b95f8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727716836372028327, guid: c8aef1a5ad7763a4591a0f5c068b95f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727716836372028327, guid: c8aef1a5ad7763a4591a0f5c068b95f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3727716836372028327, guid: c8aef1a5ad7763a4591a0f5c068b95f8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6171626574184662394, guid: c8aef1a5ad7763a4591a0f5c068b95f8, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 1277311977}
+>>>>>>> parent of 0262caf (Changed Robot Shield Enemy)
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8aef1a5ad7763a4591a0f5c068b95f8, type: 3}
+<<<<<<< HEAD
 --- !u!1001 &7965873575873029063
+=======
+--- !u!1001 &2761994860860296277
+>>>>>>> parent of 0262caf (Changed Robot Shield Enemy)
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -915,6 +985,7 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< HEAD
     - target: {fileID: 4586248638799762216, guid: 4836de679e1a3c54386044e0c79de6c1, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -962,12 +1033,65 @@ PrefabInstance:
     - target: {fileID: 6284565033827528908, guid: 4836de679e1a3c54386044e0c79de6c1, type: 3}
       propertyPath: m_Name
       value: Drone Enemy
+=======
+    - target: {fileID: 2401356534421966533, guid: 7930f91507a581740a03f1c60f8b8926, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401356534421966533, guid: 7930f91507a581740a03f1c60f8b8926, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401356534421966533, guid: 7930f91507a581740a03f1c60f8b8926, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.07508305
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401356534421966533, guid: 7930f91507a581740a03f1c60f8b8926, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401356534421966533, guid: 7930f91507a581740a03f1c60f8b8926, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401356534421966533, guid: 7930f91507a581740a03f1c60f8b8926, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401356534421966533, guid: 7930f91507a581740a03f1c60f8b8926, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401356534421966533, guid: 7930f91507a581740a03f1c60f8b8926, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401356534421966533, guid: 7930f91507a581740a03f1c60f8b8926, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401356534421966533, guid: 7930f91507a581740a03f1c60f8b8926, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401356534421966533, guid: 7930f91507a581740a03f1c60f8b8926, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3888538519126028016, guid: 7930f91507a581740a03f1c60f8b8926, type: 3}
+      propertyPath: m_Name
+      value: Robot Soldier Enemy
+>>>>>>> parent of 0262caf (Changed Robot Shield Enemy)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
+<<<<<<< HEAD
   m_SourcePrefab: {fileID: 100100000, guid: 4836de679e1a3c54386044e0c79de6c1, type: 3}
+=======
+  m_SourcePrefab: {fileID: 100100000, guid: 7930f91507a581740a03f1c60f8b8926, type: 3}
+>>>>>>> parent of 0262caf (Changed Robot Shield Enemy)
 --- !u!1001 &9204466989450462722
 PrefabInstance:
   m_ObjectHideFlags: 0

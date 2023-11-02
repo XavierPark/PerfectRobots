@@ -12,7 +12,6 @@ public class bullet : MonoBehaviour
     [SerializeField] int speed;
     [SerializeField] int destroyTime;
     [SerializeField] int damage;
-    [SerializeField] List<GameObject> hitList;
 
 
 
