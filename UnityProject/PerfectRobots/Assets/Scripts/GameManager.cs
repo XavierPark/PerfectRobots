@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     public Image playerHpBar;
     [SerializeField] TMP_Text getToTheChopper;
     public bool endGame;
+    public bool startGame = false;
 
     float timescaleOrig;
     int enemiesRemaining;
@@ -58,12 +59,12 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindWithTag("Player");        
         playerScript = player.GetComponent<PlayerController>();
         playerSpawnPos = GameObject.FindWithTag("Respawn");
-        
+       
     }
 
     void Start()
     {
-        //Begin();
+       
         //GBtempArray = GameObject.FindGameObjectsWithTag("LazerBlasterSpPos");
         //groundObjectPosList.AddRange(GBtempArray);
         //GBtempArray = GameObject.FindGameObjectsWithTag("AmmoSpPos");
@@ -95,6 +96,10 @@ public class GameManager : MonoBehaviour
             menuPause.SetActive(isPaused);
             //reticlePause.SetActive(!isPaused);
 
+        }
+        if (startGame == false)
+        {
+            Begin();
         }
     }
     public void UpdateGameGoal(int amount)
