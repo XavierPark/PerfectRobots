@@ -27,6 +27,7 @@ public class ButtonFunctions : MonoBehaviour
     {
         GameManager.Instance.stateUnpause();
         GameManager.Instance.startGame = true;
+        GameManager.Instance.isPaused = false;
     }
 
     public void quit()

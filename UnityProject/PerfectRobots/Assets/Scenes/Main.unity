@@ -2988,6 +2988,10 @@ PrefabInstance:
       propertyPath: playerDmgScreen
       value: 
       objectReference: {fileID: 179754810}
+    - target: {fileID: 5701902853924095572, guid: 56bfe08ab52ae1c4a93577e90cdf4822, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: bStart
+      objectReference: {fileID: 0}
     - target: {fileID: 6439938163112219133, guid: 56bfe08ab52ae1c4a93577e90cdf4822, type: 3}
       propertyPath: m_Pivot.x
       value: 0

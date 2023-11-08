@@ -9,12 +9,16 @@ using UnityEngine.EventSystems;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    [Header("-----player-----")]
     public GameObject player; //test
     public List<GameObject> groundObjectPosList;
     public GameObject[] GBtempArray;
-
+    public GameObject playerSpawnPos;
+    public PlayerController playerScript;
 
     //menus
+    [Header("-----UI/HUD-----")]
     [SerializeField] GameObject menuActive;
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin;
@@ -22,21 +26,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject menuMain;
     [SerializeField] GameObject reticlePause;
     [SerializeField] TMP_Text enemyCount;
+    [SerializeField] TMP_Text getToTheChopper;
     [SerializeField] Image exitBG;
     [SerializeField] GameObject playerDmgScreen;
 
     public Image playerHpBar;
-    [SerializeField] TMP_Text getToTheChopper;
+    
     public bool endGame;
     public bool startGame = false;
-
     float timescaleOrig;
     int enemiesRemaining;
-    public GameObject playerSpawnPos;
-    public PlayerController playerScript;
-
-
+    
     //door stuff - Dami
+    [Header("-----Doors-----")]
     EndDoor endDoor;
     [SerializeField] GameObject door;
     FinishLine finish;
@@ -201,6 +203,8 @@ public class GameManager : MonoBehaviour
 
     public void Begin()
     {
+        startGame = false;
+        isPaused = !isPaused;
         menuActive = menuMain;
         menuActive.SetActive(true);
         Time.timeScale = 0;
