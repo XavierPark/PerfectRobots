@@ -10,10 +10,15 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Transform shootPos;
     [SerializeField] Transform headPos;
+    [SerializeField] Animator anim;
 
     [Header("----- Enemy Stats -----")]
     [Range(1, 10)][SerializeField] int HP;
     [Range(1, 20)][SerializeField] int playerFaceSpeed;
+    [SerializeField] int viewCone;
+    [SerializeField] int shootCone;
+    [SerializeField] int roamDist;
+    [SerializeField] int roamPauseTime;
 
     [Header("----- Gun Stats -----")]
     [SerializeField] GameObject bullet;
@@ -21,32 +26,88 @@ public class EnemyAI : MonoBehaviour, IDamage
 
 
     Vector3 playerDir;
+    Vector3 startingPos;
     bool isShooting;
     bool playerInRange;
+    bool destinationChosen;
+    float angleToPlayer;
+    float stoppingDistOrig;
 
     void Start()
     {
         GameManager.Instance.UpdateGameGoal(1);
+        stoppingDistOrig = agent.stoppingDistance;
+        startingPos = transform.position;
     }
 
     void Update()
     {
-        if (playerInRange)
+
+        anim.SetFloat("Speed", agent.velocity.normalized.magnitude);
+
+        if (playerInRange && !canSeePlayer())
         {
-            playerDir = GameManager.Instance.player.transform.position - transform.position;
-
-            if (!isShooting)
-            {
-                StartCoroutine(shoot());
-            }
-
-            if (agent.remainingDistance < agent.stoppingDistance)
-            {
-                faceTarget();
-            }
-
-            agent.SetDestination(GameManager.Instance.player.transform.position);
+            StartCoroutine(roam());
         }
+        else if (!playerInRange)
+        {
+            StartCoroutine(roam());
+        }
+    }
+
+    IEnumerator roam()
+    {
+        if (agent.remainingDistance < 0.05f && !destinationChosen)
+        {
+            destinationChosen = true;
+            agent.stoppingDistance = 0;
+
+            yield return new WaitForSeconds(roamPauseTime);
+
+            Vector3 randomPos = Random.insideUnitSphere * roamDist;
+            randomPos += startingPos;
+
+            NavMeshHit hit;
+            NavMesh.SamplePosition(randomPos, out hit, roamDist, 1);
+            agent.SetDestination(hit.position);
+
+            destinationChosen = false;
+        }
+    }
+
+    bool canSeePlayer()
+    {
+        playerDir = GameManager.Instance.player.transform.position - headPos.position;
+        angleToPlayer = Vector3.Angle(new Vector3(playerDir.x, 0, playerDir.z), transform.forward);
+
+        Debug.DrawRay(headPos.position, playerDir);
+        Debug.Log(angleToPlayer);
+
+        RaycastHit hit;
+
+        if(Physics.Raycast(headPos.position, playerDir, out hit))
+        {
+            if(hit.collider.CompareTag("Player") && angleToPlayer <= viewCone)
+            {
+                agent.stoppingDistance = stoppingDistOrig;
+
+                if (angleToPlayer <= shootCone && !isShooting)
+                {
+                    StartCoroutine(shoot());
+                }
+
+                if (agent.remainingDistance < agent.stoppingDistance)
+                {
+                    faceTarget();
+                }
+
+                agent.SetDestination(GameManager.Instance.player.transform.position);
+
+                return true;
+            }
+        }
+
+        return false;
     }
 
     void OnTriggerEnter(Collider other)
@@ -61,6 +122,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     {
         if (other.CompareTag("Player"))
         {
+            agent.stoppingDistance = 0;
             playerInRange = false;
         }
     }

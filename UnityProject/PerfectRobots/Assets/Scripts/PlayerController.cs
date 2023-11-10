@@ -39,8 +39,10 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     // Update is called once per frame
     void Update()
     {
-
-        Movement();
+        if (!GameManager.Instance.isPaused)
+        {
+            Movement();
+        }
     }
 
     void Movement()

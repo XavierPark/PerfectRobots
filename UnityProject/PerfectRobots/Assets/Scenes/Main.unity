@@ -16719,7 +16719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 889351742993172716, guid: 18b7382c71de5b34ca190cd8b845d904, type: 3}
       propertyPath: m_Name
-      value: Robot1
+      value: Robot Shield Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 889351742993172716, guid: 18b7382c71de5b34ca190cd8b845d904, type: 3}
       propertyPath: m_Layer
@@ -17916,7 +17916,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 889351742993172716, guid: 18b7382c71de5b34ca190cd8b845d904, type: 3}
       propertyPath: m_Name
-      value: Robot1 (1)
+      value: Robot Shield Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 889351742993172716, guid: 18b7382c71de5b34ca190cd8b845d904, type: 3}
       propertyPath: m_Layer

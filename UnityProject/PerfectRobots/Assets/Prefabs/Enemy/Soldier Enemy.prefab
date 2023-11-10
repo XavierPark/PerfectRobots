@@ -1055,10 +1055,15 @@ MonoBehaviour:
   agent: {fileID: 1067258738016301727}
   shootPos: {fileID: 4772383805076712180}
   headPos: {fileID: 5738262958243790632}
+  anim: {fileID: 5777679594374028137}
   HP: 4
-  playerFaceSpeed: 7
+  playerFaceSpeed: 6
+  viewCone: 90
+  shootCone: 45
+  roamDist: 15
+  roamPauseTime: 1
   bullet: {fileID: 4075917783296887175, guid: 3bc133aec5c0aaf41a34fe1a0a66d457, type: 3}
-  shootRate: 0.5
+  shootRate: 0.8
 --- !u!95 &5777679594374028137
 Animator:
   serializedVersion: 5

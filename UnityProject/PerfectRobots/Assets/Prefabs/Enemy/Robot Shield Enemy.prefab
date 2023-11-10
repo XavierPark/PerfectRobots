@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 5414300005606961345}
   - component: {fileID: 1725327749570597858}
   m_Layer: 6
-  m_Name: Robot1
+  m_Name: Robot Shield Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -295,9 +295,14 @@ MonoBehaviour:
   model: {fileID: 6229166151344267669}
   agent: {fileID: 7891940255608411821}
   shootPos: {fileID: 3430595016841437647}
-  headPos: {fileID: 0}
+  headPos: {fileID: 6380300756701308910}
+  anim: {fileID: 4815251036570308737}
   HP: 6
-  playerFaceSpeed: 8
+  playerFaceSpeed: 4
+  viewCone: 90
+  shootCone: 45
+  roamDist: 15
+  roamPauseTime: 1
   bullet: {fileID: 4075917783296887175, guid: 3bc133aec5c0aaf41a34fe1a0a66d457, type: 3}
   shootRate: 0
 --- !u!195 &7891940255608411821
