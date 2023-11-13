@@ -618,9 +618,7 @@ MonoBehaviour:
   halfDoorLeftTransform: {fileID: 9182430388298791910}
   halfDoorRightTransform: {fileID: 2597353691606580669}
   slideDistance: 2
-  speed: 1
   doorOpeningSoundClip: {fileID: 8300000, guid: 80d08fa5dccc64ffa90d6734ce03512e, type: 3}
-  doorClosingSoundClip: {fileID: 8300000, guid: 4547fb4d1627d4ce6acc55af375f84f4, type: 3}
 --- !u!54 &1359716185176867210
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2756,9 +2754,7 @@ MonoBehaviour:
   halfDoorLeftTransform: {fileID: 7141696830671858564}
   halfDoorRightTransform: {fileID: 7466573672271169785}
   slideDistance: 2
-  speed: 1
   doorOpeningSoundClip: {fileID: 8300000, guid: 80d08fa5dccc64ffa90d6734ce03512e, type: 3}
-  doorClosingSoundClip: {fileID: 8300000, guid: 4547fb4d1627d4ce6acc55af375f84f4, type: 3}
 --- !u!54 &8189587835060080354
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6092,9 +6088,7 @@ MonoBehaviour:
   halfDoorLeftTransform: {fileID: 2522787183762050703}
   halfDoorRightTransform: {fileID: 2028892717073370659}
   slideDistance: 2
-  speed: 1
   doorOpeningSoundClip: {fileID: 8300000, guid: 80d08fa5dccc64ffa90d6734ce03512e, type: 3}
-  doorClosingSoundClip: {fileID: 8300000, guid: 4547fb4d1627d4ce6acc55af375f84f4, type: 3}
 --- !u!54 &1308850207806383345
 Rigidbody:
   m_ObjectHideFlags: 0
