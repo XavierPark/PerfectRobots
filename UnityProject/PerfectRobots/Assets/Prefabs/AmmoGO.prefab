@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7697899778980584038}
   - component: {fileID: 757772515286164953}
   - component: {fileID: 4967079830796732147}
-  - component: {fileID: 6540273208642463882}
   - component: {fileID: 8449794662492837147}
   m_Layer: 0
   m_Name: AmmoGO
@@ -34,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7697899778980584038
 MeshFilter:
@@ -107,19 +106,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.77
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6540273208642463882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5424695622454460259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3f213fa78e9a7d4da1c81690380c2ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: fb6bdb0e6bec17f4896b80289ce29f97, type: 2}
 --- !u!114 &8449794662492837147
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AmmoGO : MonoBehaviour
+public class AmmoGroObj : MonoBehaviour
 {
     [Header("-----  Components  -----\n")]
     [SerializeField] float floatSpeed;
@@ -37,16 +37,17 @@ public class AmmoGO : MonoBehaviour
 
     public void Update()
     {
-        if (transform.parent == null)
-        {
-            GameManager.Instance.Gravitate(gameObject, floatSpeed, initialPosition, rotateSpeed);
-        }
+        float floatOffset = Mathf.Sin(Time.time * floatSpeed) * 0.5f;
+        Vector3 newPosition = initialPosition + new Vector3(0, floatOffset, 0);
+        transform.position = newPosition;
+
+        transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
     }
 
 
     void OnTriggerEnter(Collider other)
     {
-        Inventory.instance.CollectAmmo(AmmoHolding);
+        Mathf.Clamp(GameManager.Instance.ammoCurr += AmmoHolding, 0, 1000);
         Destroy(gameObject);
     }
 }

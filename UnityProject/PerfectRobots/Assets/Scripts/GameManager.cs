@@ -37,6 +37,9 @@ public class GameManager : MonoBehaviour
     public bool startGame = false;
     float timescaleOrig;
     int enemiesRemaining;
+    public int ammoCurr;
+    public int ammoMagMax;
+    public int ammoInMagCurr;
     
     //door stuff - Dami
     [Header("-----Doors-----")]
@@ -218,5 +221,10 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
+    }
+
+    public void CollectAmmo(int AddedAmmo)
+    {
+        ammoCurr += AddedAmmo;
     }
 }
