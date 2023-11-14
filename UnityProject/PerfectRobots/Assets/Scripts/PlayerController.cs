@@ -106,14 +106,16 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
         if (Shield == 0)
         {
             HP -= amount;
+            Debug.Log(HP);
+            updatePlayerUI();
+            StartCoroutine(GameManager.Instance.PlayerFlashDamage());
         }
         else
         {
-            Debug.Log("Yes!");
-            Shield -= amount;
+             Shield -= amount;
+            updateShieldUI();
         }
-        updatePlayerUI();
-        StartCoroutine(GameManager.Instance.PlayerFlashDamage());
+        
 
         if (HP <= 0)
         {
@@ -126,17 +128,20 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
         controller.enabled = false;
         HP = HPOrig;
         updatePlayerUI();
+        updateShieldUI();
         transform.position = GameManager.Instance.playerSpawnPos.transform.position;
         controller.enabled = true;
     }
 
     public void updatePlayerUI()
     {
-        GameManager.Instance.playerHpBar.fillAmount = (float)HP / HPOrig;
+         //Debug.Log("No!");
+         GameManager.Instance.playerHpBar.fillAmount = (float)HP / HPOrig;
     }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        HP = HP + 3; 
+    public void updateShieldUI()
+    {  
+         GameManager.Instance.playerShieldBar.fillAmount = (float)Shield / ShieldOrig;
     }
+
 }
