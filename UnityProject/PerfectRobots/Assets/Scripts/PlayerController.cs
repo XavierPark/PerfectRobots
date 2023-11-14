@@ -104,13 +104,14 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
         }
         else
         {
+            isShooting = true;
             yield return new WaitForSeconds(reloadTime);
             if (GameManager.Instance.ammoCurr >= GameManager.Instance.ammoMagMax)
             {
                 Mathf.Clamp(GameManager.Instance.ammoCurr -= GameManager.Instance.ammoMagMax, 0, 1000);
                 GameManager.Instance.ammoInMagCurr = GameManager.Instance.ammoMagMax;
             }
-            else if (GameManager.Instance.ammoCurr != 0)
+            else
             {
                 GameManager.Instance.ammoInMagCurr = GameManager.Instance.ammoCurr;
                 GameManager.Instance.ammoCurr = 0;
