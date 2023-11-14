@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [Header("-----player-----")]
-    public GameObject player; //test
+    public GameObject player;
     public List<GameObject> groundObjectPosList;
     public GameObject[] GBtempArray;
     public GameObject playerSpawnPos;
