@@ -26,9 +26,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject menuMain;
     [SerializeField] GameObject reticlePause;
     [SerializeField] TMP_Text enemyCount;
-    [SerializeField] TMP_Text getToTheChopper;
     [SerializeField] Image exitBG;
     [SerializeField] GameObject playerDmgScreen;
+    [SerializeField] GameObject GetToTheChopper;
+    [SerializeField] GameObject enemycounttext;
 
     public Image playerHpBar;
     
@@ -66,10 +67,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        if (startGame == false)
-        {
-            Begin();
-        }
+        //if (startGame == false)
+        //{
+        //    Begin();
+        //}
         //GBtempArray = GameObject.FindGameObjectsWithTag("LazerBlasterSpPos");
         //groundObjectPosList.AddRange(GBtempArray);
         //GBtempArray = GameObject.FindGameObjectsWithTag("AmmoSpPos");
@@ -100,7 +101,6 @@ public class GameManager : MonoBehaviour
             menuActive = menuPause;
             menuPause.SetActive(isPaused);
             //reticlePause.SetActive(!isPaused);
-
         }
         
     }
@@ -111,9 +111,17 @@ public class GameManager : MonoBehaviour
 
         if(enemiesRemaining <= 0)
         {
+            GetToTheChooper();
             endDoor.StartCoroutine("OpenDoor");
             //Door having stroke
         }
+    }
+
+    public void GetToTheChooper()
+    {
+        GetToTheChopper.SetActive(true);
+        enemycounttext.SetActive(false);
+        Debug.Log("Yes!");
     }
 
     public void ExitDoorCondition()
@@ -196,7 +204,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator PlayerFlashDamage()
     {
-        playerDmgScreen.SetActive(true);
+        playerDmgScreen.SetActive(true); 
         yield return new WaitForSeconds(0.1f);
         playerDmgScreen.SetActive(false);
     }
