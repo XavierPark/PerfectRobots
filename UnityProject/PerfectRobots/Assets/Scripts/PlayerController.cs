@@ -88,7 +88,6 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
         {
-            //Commenting this out to see if thats why my glass will not work -Dami
             Instantiate(bullet, shootPos.position, transform.rotation);
             IDamage damageable = hit.collider.GetComponent<IDamage>();
 

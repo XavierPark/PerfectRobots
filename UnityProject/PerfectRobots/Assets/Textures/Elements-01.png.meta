@@ -181,8 +181,8 @@ TextureImporter:
       name: Bar
       rect:
         serializedVersion: 2
-        x: 2993
-        y: 1058
+        x: 3007
+        y: 1053
         width: 977
         height: 106
       alignment: 0
@@ -223,18 +223,18 @@ TextureImporter:
       name: Blue Bar
       rect:
         serializedVersion: 2
-        x: 3089
-        y: 1989
-        width: 918
-        height: 92
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3068
+        y: 1976
+        width: 977
+        height: 106
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f93802ea557f374985899b8c48d676c
+      spriteID: d1a389a3987b3354bad879d914cf288c
       internalID: -1557417425
       vertices: []
       indices: 
