@@ -19786,6 +19786,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1034289662206960478, guid: 6fce45a16bb28b340b4a062d849ef2f3, type: 3}
+      propertyPath: Shield
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1034289662206960478, guid: 6fce45a16bb28b340b4a062d849ef2f3, type: 3}
       propertyPath: bullet
       value: 
       objectReference: {fileID: 4075917783296887175, guid: 3bc133aec5c0aaf41a34fe1a0a66d457, type: 3}

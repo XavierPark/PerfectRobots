@@ -32,7 +32,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject enemycounttext;
 
     public Image playerHpBar;
-    
+    public Image playerShieldBar;
+
     public bool endGame;
     public bool startGame = false;
     float timescaleOrig;

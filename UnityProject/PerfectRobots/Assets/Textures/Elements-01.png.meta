@@ -144,7 +144,7 @@ TextureImporter:
         width: 427
         height: 540
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -165,7 +165,7 @@ TextureImporter:
         width: 1023
         height: 123
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -182,11 +182,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2993
-        y: 1061
+        y: 1058
         width: 977
         height: 106
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,6 +194,48 @@ TextureImporter:
       bones: []
       spriteID: d209febce624eef41a9dc62a80281359
       internalID: -860607078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue BG
+      rect:
+        serializedVersion: 2
+        x: 3038
+        y: 1768
+        width: 1003
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 1, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94db921f231ed344985ad4605c922165
+      internalID: -1561722129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue Bar
+      rect:
+        serializedVersion: 2
+        x: 3089
+        y: 1989
+        width: 918
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f93802ea557f374985899b8c48d676c
+      internalID: -1557417425
       vertices: []
       indices: 
       edges: []
@@ -211,6 +253,8 @@ TextureImporter:
     nameFileIdTable:
       BG: 431484802
       Bar: -860607078
+      Blue BG: -1561722129
+      Blue Bar: -1557417425
       Box: -1937366347
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

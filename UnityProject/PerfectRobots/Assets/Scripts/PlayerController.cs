@@ -10,30 +10,32 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
 
     [Header("----- Player Stats -----")]
     [Range(1, 10)][SerializeField] int HP;
+    [Range(0, 10)][SerializeField] int Shield;
     [Range(2, 8)][SerializeField] float playerSpeed;
     [Range(8, 30)][SerializeField] float jumpHeight;
     [Range(1, 4)][SerializeField] int jumpsMax;
     [Range(-10, -40)][SerializeField] float gravityValue;
-
+    
 
     [Header("----- Gun Stats -----")]
     [SerializeField] int shootDamage;
     [SerializeField] int shootDist;
     [SerializeField] float shootRate; //Changed to float so we can have faster gunfire - Dami
-    [SerializeField] float reloadTime;
     [SerializeField] GameObject bullet;
-
-
+    
+    
     private Vector3 move;
     private Vector3 playerVelocity;
     bool isShooting;
     private bool groundedPlayer;
     private int jumpTimes;
     int HPOrig;
+    int ShieldOrig;
 
     void Start()
     {
         HPOrig = HP;
+        ShieldOrig = Shield;
         SpawnPlayer();
     }
 
@@ -82,47 +84,35 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     }
     IEnumerator shoot()
     {
-        if (GameManager.Instance.ammoInMagCurr > 0)
+        isShooting = true;
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
         {
-            isShooting = true;
-            GameManager.Instance.ammoInMagCurr--;
-            RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
-            {
-                //Commenting this out to see if thats why my glass will not work -Dami
-                Instantiate(bullet, shootPos.position, transform.rotation);
-                IDamage damageable = hit.collider.GetComponent<IDamage>();
+            //Commenting this out to see if thats why my glass will not work -Dami
+            Instantiate(bullet, shootPos.position, transform.rotation);
+            IDamage damageable = hit.collider.GetComponent<IDamage>();
 
-                if (hit.transform != transform && damageable != null)
-                {
-                    damageable.takeDamage(shootDamage);
+            if (hit.transform != transform && damageable != null)
+            {
+                damageable.takeDamage(shootDamage);
 
-                }
             }
-            yield return new WaitForSeconds(shootRate);
-            isShooting = false;
         }
-        else
-        {
-            isShooting = true;
-            yield return new WaitForSeconds(reloadTime);
-            if (GameManager.Instance.ammoCurr >= GameManager.Instance.ammoMagMax)
-            {
-                Mathf.Clamp(GameManager.Instance.ammoCurr -= GameManager.Instance.ammoMagMax, 0, 1000);
-                GameManager.Instance.ammoInMagCurr = GameManager.Instance.ammoMagMax;
-            }
-            else
-            {
-                GameManager.Instance.ammoInMagCurr = GameManager.Instance.ammoCurr;
-                GameManager.Instance.ammoCurr = 0;
-            }
-            isShooting = false;
-        }
+        yield return new WaitForSeconds(shootRate);
+        isShooting = false;
     }
 
     public void takeDamage(int amount)
     {
-        HP -= amount;
+        if (Shield == 0)
+        {
+            HP -= amount;
+        }
+        else
+        {
+            Debug.Log("Yes!");
+            Shield -= amount;
+        }
         updatePlayerUI();
         StartCoroutine(GameManager.Instance.PlayerFlashDamage());
 
@@ -144,5 +134,10 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     public void updatePlayerUI()
     {
         GameManager.Instance.playerHpBar.fillAmount = (float)HP / HPOrig;
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        HP = HP + 3; 
     }
 }
