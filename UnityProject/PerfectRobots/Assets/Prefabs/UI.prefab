@@ -3547,7 +3547,7 @@ MonoBehaviour:
   GetToTheChopper: {fileID: 6730416595671243439}
   enemycounttext: {fileID: 5070735132273330927}
   playerHpBar: {fileID: 7875026491968485642}
-  playerShieldBar: {fileID: 0}
+  playerShieldBar: {fileID: 8033246181065818716}
   endGame: 0
   startGame: 0
   ammoCurr: 40
