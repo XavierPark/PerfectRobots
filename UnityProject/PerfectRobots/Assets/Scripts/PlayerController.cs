@@ -125,10 +125,13 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
 
     public void SpawnPlayer()
     {
+        Debug.Log("yes");
         controller.enabled = false;
         HP = HPOrig;
         updatePlayerUI();
+        Debug.Log("yes 1");
         updateShieldUI();
+        Debug.Log("yes 2");
         transform.position = GameManager.Instance.playerSpawnPos.transform.position;
         controller.enabled = true;
     }
