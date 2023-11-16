@@ -197,6 +197,7 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
         else
         {
             isShooting = true;
+            GameManager.Instance.relodMessage.enabled = true;
             yield return new WaitForSeconds(reloadTime);
             if (!gunList[selectedGun].Electric)
             {

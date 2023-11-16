@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject playerDmgScreen;
     [SerializeField] GameObject GetToTheChopper;
     [SerializeField] GameObject enemycounttext;
+    [SerializeField] public TMP_Text relodMessage;
+    [SerializeField] public TMP_Text noAmmoMessage;
 
     [Header("----- Audio -----")]
     [SerializeField] AudioSource aud;
