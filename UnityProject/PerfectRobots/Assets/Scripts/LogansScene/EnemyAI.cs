@@ -151,7 +151,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         if (HP <= 0)
         {
             GameManager.Instance.UpdateGameGoal(-1);
-            Instantiate(groundItems[Random.Range(0, 2)], transform.position, transform.rotation);
+            Instantiate(groundItems[Random.Range(0, groundItems.Count)], transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
