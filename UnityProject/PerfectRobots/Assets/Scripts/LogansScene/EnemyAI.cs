@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -25,6 +26,8 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] GameObject bullet;
     [SerializeField] float shootRate;
 
+    [Header("----- Drop on Death -----")]
+    [SerializeField] List<GameObject> groundItems;
 
     Vector3 playerDir;
     Vector3 startingPos;
@@ -148,6 +151,7 @@ public class EnemyAI : MonoBehaviour, IDamage
         if (HP <= 0)
         {
             GameManager.Instance.UpdateGameGoal(-1);
+            Instantiate(groundItems[Random.Range(0, 2)], transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
