@@ -8,6 +8,8 @@ public class ShieldStats : MonoBehaviour, IDamage
     [Header("===== Components =====")]
     [SerializeField] MeshRenderer model;
 
+    [SerializeField] GameObject shieldPos;
+    [SerializeField] AudioSource aud;
 
     [Header("===== Stats =====")]
     [Range(1, 5)][SerializeField] int shieldHp;
