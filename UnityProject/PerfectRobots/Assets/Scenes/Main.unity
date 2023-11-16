@@ -784,6 +784,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 14b272abeb5c9fb4cbc73bfdaadb8193, type: 3}
     - target: {fileID: 5102927979406138804, guid: 56bfe08ab52ae1c4a93577e90cdf4822, type: 3}
+      propertyPath: isPaused
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102927979406138804, guid: 56bfe08ab52ae1c4a93577e90cdf4822, type: 3}
       propertyPath: audWinVol
       value: 0.4
       objectReference: {fileID: 0}
@@ -797,7 +801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5102927979406138804, guid: 56bfe08ab52ae1c4a93577e90cdf4822, type: 3}
       propertyPath: eleAmmoCurr
-      value: 45
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5102927979406138804, guid: 56bfe08ab52ae1c4a93577e90cdf4822, type: 3}
       propertyPath: norAmmoCurr

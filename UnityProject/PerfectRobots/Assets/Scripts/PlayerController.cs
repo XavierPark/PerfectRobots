@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     [SerializeField] int shootDamage;
     [SerializeField] int shootDist;
     [SerializeField] float shootRate; //Changed to float so we can have faster gunfire - Dami
+    [SerializeField]int reloadTime;
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject bullet2;
 
@@ -53,7 +54,6 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     Transform gunPosTransform;
     Transform gunOrgPosTransform;
     int ShieldOrig;
-    int reloadTime;
 
 
     void Start()
@@ -180,7 +180,8 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
 
                 if (hit.transform != transform && damageable != null)
                 {
-                    if (Enemy.robotType && gunList[selectedGun].Electric)
+                        Debug.Log("takedamage");
+                    if (Enemy != null && Enemy.robotType && gunList[selectedGun].Electric)
                     {
                         damageable.takeDamage(shootDamage * 2);
                     }
