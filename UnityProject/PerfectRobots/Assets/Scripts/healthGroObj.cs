@@ -49,7 +49,6 @@ public class heaAmmoGroObj : MonoBehaviour
         {
             PlayerController player = other.GetComponent<PlayerController>();
             Mathf.Clamp(player.HP += HealthHolding, 0, player.HPOrig);
-            player.updatePlayerUI();
             Destroy(gameObject);
         }
     }

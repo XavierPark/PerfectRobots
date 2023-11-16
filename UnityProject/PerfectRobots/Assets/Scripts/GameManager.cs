@@ -231,4 +231,8 @@ public class GameManager : MonoBehaviour
     //    Cursor.lockState = CursorLockMode.Confined;
     //}
 
+    public void CollectAmmo(int AddedAmmo)
+    {
+        ammoCurr += AddedAmmo;
+    }
 }
