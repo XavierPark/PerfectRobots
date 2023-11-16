@@ -859,6 +859,10 @@ MonoBehaviour:
   robotType: 1
   bullet: {fileID: 4075917783296887175, guid: 3bc133aec5c0aaf41a34fe1a0a66d457, type: 3}
   shootRate: 0
+  groundItems:
+  - {fileID: 8053495133308527120, guid: d185013f9c036ab4b94edbd3c6dc3391, type: 3}
+  - {fileID: 4314489863434980163, guid: af95260e0953dcb448fbd74db09eea84, type: 3}
+  - {fileID: 7335518215518311903, guid: 577f23c78ce0cf944beb652c56d9ddf4, type: 3}
 --- !u!195 &1394217999367194620
 NavMeshAgent:
   m_ObjectHideFlags: 0
