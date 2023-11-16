@@ -125,6 +125,7 @@ public class GameManager : MonoBehaviour
         {
             GetToTheChooper();
             endDoor.StartCoroutine("OpenDoor");
+            //Door having stroke
         }
     }
 
