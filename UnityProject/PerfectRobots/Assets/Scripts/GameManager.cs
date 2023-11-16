@@ -31,6 +31,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject GetToTheChopper;
     [SerializeField] GameObject enemycounttext;
 
+    [Header("----- Audio -----")]
+    [SerializeField] AudioSource aud;
+    [SerializeField] AudioClip audMusic;
+    [Range(0, 1)][SerializeField] float audMusicVol;
+    [SerializeField] AudioClip audWin;
+    [Range(0, 1)][SerializeField] float audWinVol;
+
     public Image playerHpBar;
     public Image playerShieldBar;
 
@@ -55,6 +62,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        aud.PlayOneShot(audMusic, audMusicVol);
         if (Instance != null)
         {
             Debug.LogWarning("More than one instance of GroundObjectController found!");
@@ -166,6 +174,7 @@ public class GameManager : MonoBehaviour
         statePause();
         menuActive = menuWin;
         menuActive.SetActive(true);
+        aud.PlayOneShot(audWin, audWinVol);
         currFloorFinish = 0;
     }
 
