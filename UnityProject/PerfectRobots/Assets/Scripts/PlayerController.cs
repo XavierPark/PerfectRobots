@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     [Range(0, 10)][SerializeField] int Shield;
     [Range(2, 8)][SerializeField] float playerSpeed;
     [Range(8, 30)][SerializeField] float jumpHeight;
+    [Range(2, 4)][SerializeField] int sprintMod;
+    [Range(0, 4)][SerializeField] int sprintamount;
     [Range(1, 4)][SerializeField] int jumpsMax;
     [Range(-10, -40)][SerializeField] float gravityValue;
     
@@ -37,14 +39,18 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     private Vector3 move;
     private Vector3 playerVelocity;
     bool isShooting;
+    bool isPlayingSteps;
+    bool isSprinting;
+    int sprintMax;
     private bool groundedPlayer;
     private int jumpTimes;
     int HPOrig;
     int ShieldOrig;
-    bool isPlayingSteps;
+    
 
     void Start()
     {
+        sprintMax = sprintamount;
         HPOrig = HP;
         ShieldOrig = Shield;
         SpawnPlayer();
@@ -61,14 +67,16 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
 
     void Movement()
     {
+        
+         sprint();
+        
+       
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDist);
 
         if (Input.GetButton("Shoot") && !isShooting)
         {
             StartCoroutine(shoot());
         }
-
-
 
         groundedPlayer = controller.isGrounded;
 
@@ -109,6 +117,28 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
         yield return new WaitForSeconds(0.4f);
 
         isPlayingSteps = false;
+    }
+
+    void sprint()
+    {
+        if (Input.GetButtonDown("Sprint"))
+        {
+            Debug.Log("down");
+            isSprinting = true;
+            playerSpeed *= sprintMod;
+        }
+        else if (Input.GetButtonUp("Sprint"))
+        {
+            Debug.Log("up");
+            isSprinting = false;
+            playerSpeed /= sprintMod;
+        }
+    }
+
+    IEnumerator resetSperint()
+    {
+        yield return new WaitForSeconds(3);
+        sprintamount = sprintMax;
     }
 
     IEnumerator shoot()
