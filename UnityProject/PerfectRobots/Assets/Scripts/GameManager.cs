@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [Header("-----player-----")]
-    public GameObject player; //test
+    public GameObject player;
     public List<GameObject> groundObjectPosList;
     public GameObject[] GBtempArray;
     public GameObject playerSpawnPos;
@@ -26,13 +26,20 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject menuMain;
     [SerializeField] GameObject reticlePause;
     [SerializeField] TMP_Text enemyCount;
-    [SerializeField] Image exitBG;
     [SerializeField] GameObject playerDmgScreen;
     [SerializeField] GameObject GetToTheChopper;
     [SerializeField] GameObject enemycounttext;
 
+    [Header("----- Audio -----")]
+    [SerializeField] AudioSource aud;
+    [SerializeField] AudioClip audMusic;
+    [Range(0, 1)][SerializeField] float audMusicVol;
+    [SerializeField] AudioClip audWin;
+    [Range(0, 1)][SerializeField] float audWinVol;
+
     public Image playerHpBar;
-    
+    public Image playerShieldBar;
+
     public bool endGame;
     public bool startGame = false;
     float timescaleOrig;
@@ -54,6 +61,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        aud.PlayOneShot(audMusic, audMusicVol);
         if (Instance != null)
         {
             Debug.LogWarning("More than one instance of GroundObjectController found!");
@@ -116,7 +124,6 @@ public class GameManager : MonoBehaviour
         {
             GetToTheChooper();
             endDoor.StartCoroutine("OpenDoor");
-            //Door having stroke
         }
     }
 
@@ -166,6 +173,7 @@ public class GameManager : MonoBehaviour
         statePause();
         menuActive = menuWin;
         menuActive.SetActive(true);
+        aud.PlayOneShot(audWin, audWinVol);
         currFloorFinish = 0;
     }
 
@@ -212,14 +220,19 @@ public class GameManager : MonoBehaviour
         playerDmgScreen.SetActive(false);
     }
 
-    public void Begin()
+    //public void Begin()
+    //{
+    //    startGame = false;
+    //    isPaused = !isPaused;
+    //    menuActive = menuMain;
+    //    menuActive.SetActive(true);
+    //    Time.timeScale = 0;
+    //    Cursor.visible = true;
+    //    Cursor.lockState = CursorLockMode.Confined;
+    //}
+
+    public void CollectAmmo(int AddedAmmo)
     {
-        startGame = false;
-        isPaused = !isPaused;
-        menuActive = menuMain;
-        menuActive.SetActive(true);
-        Time.timeScale = 0;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.Confined;
+        ammoCurr += AddedAmmo;
     }
 }

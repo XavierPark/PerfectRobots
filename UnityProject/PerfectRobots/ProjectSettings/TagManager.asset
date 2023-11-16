@@ -8,6 +8,7 @@ TagManager:
   - ImageBG
   - End Text
   - Environment (No DMG)
+  - Bullet
   layers:
   - Default
   - TransparentFX

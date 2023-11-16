@@ -9,13 +9,16 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     [SerializeField] Transform shootPos;
     [SerializeField] Transform shootPos2;
 
+
     [Header("----- Player Stats -----")]
     [Range(1, 10)]public int HP;
+    [Range(0, 10)][SerializeField] int Shield;
+    [SerializeField] AudioSource aud;
     [Range(2, 8)][SerializeField] float playerSpeed;
     [Range(8, 30)][SerializeField] float jumpHeight;
     [Range(1, 4)][SerializeField] int jumpsMax;
     [Range(-10, -40)][SerializeField] float gravityValue;
-
+    
 
     [Header("----- Gun Stats -----")]
     [SerializeField] List<GunStats> gunList = new List<GunStats>();
@@ -24,10 +27,18 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     [SerializeField] int shootDamage;
     [SerializeField] int shootDist;
     [SerializeField] float shootRate; //Changed to float so we can have faster gunfire - Dami
-    [SerializeField] float reloadTime;
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject bullet2;
 
+    [Header("----- Audio -----")]
+    [SerializeField] AudioClip[] audSteps;
+    [Range(0, 1)][SerializeField] float audStepsVol;
+    [SerializeField] AudioClip[] audDamage;
+    [Range(0, 1)][SerializeField] float audDamageVol;
+    [SerializeField] AudioClip audLazer;
+    [Range(0, 1)][SerializeField] float audLazerVol;
+    [SerializeField] AudioClip[] audJump;
+    [Range(0, 1)][SerializeField] float audJumpVol;
 
     private Vector3 move;
     private Vector3 playerVelocity;
@@ -38,11 +49,15 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     int selectedGun;
     Transform gunPosTransform;
     Transform gunOrgPosTransform;
+    int HPOrig;
+    int ShieldOrig;
+    bool isPlayingSteps;
 
     void Start()
     {
         changeGun();
         HPOrig = HP;
+        ShieldOrig = Shield;
         SpawnPlayer();
         gunPosTransform = gunModel.transform;
         Transform gunOrgPosTransform = gunModel.transform;
@@ -72,6 +87,11 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
 
         groundedPlayer = controller.isGrounded;
 
+        if (groundedPlayer && move.normalized.magnitude > 0.3f && !isPlayingSteps)
+        {
+            StartCoroutine(playSteps());
+        }
+
         if (groundedPlayer && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;
@@ -86,6 +106,7 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
         // Changes the height position of the player..
         if (Input.GetButtonDown("Jump") && jumpTimes < jumpsMax)
         {
+            aud.PlayOneShot(audJump[Random.Range(0, audJump.Length)], audJumpVol);
             playerVelocity.y = jumpHeight;
             jumpTimes++;
         }
@@ -93,6 +114,18 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }
+
+    IEnumerator playSteps()
+    {
+        isPlayingSteps = true;
+
+        aud.PlayOneShot(audSteps[Random.Range(0, audSteps.Length)], audStepsVol);
+
+        yield return new WaitForSeconds(0.4f);
+
+        isPlayingSteps = false;
+    }
+
     IEnumerator shoot()
     {
         //Debug.Log("shoot() called;");
@@ -163,7 +196,22 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
                 }
             }
             isShooting = false;
+        isShooting = true;
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
+        {
+            Instantiate(bullet, shootPos.position, transform.rotation);
+            aud.PlayOneShot(audLazer, audLazerVol);
+            IDamage damageable = hit.collider.GetComponent<IDamage>();
+
+            if (hit.transform != transform && damageable != null)
+            {
+                damageable.takeDamage(shootDamage);
+
+            }
         }
+        yield return new WaitForSeconds(shootRate);
+        isShooting = false;
     }
 
     void selectGun()
@@ -223,9 +271,20 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
 
     public void takeDamage(int amount)
     {
-        HP -= amount;
-        updatePlayerUI();
-        StartCoroutine(GameManager.Instance.PlayerFlashDamage());
+        if (Shield == 0)
+        {
+            HP -= amount;
+            Debug.Log(HP);
+            updatePlayerUI();
+            aud.PlayOneShot(audDamage[Random.Range(0, audDamage.Length)], audDamageVol);
+            StartCoroutine(GameManager.Instance.PlayerFlashDamage());
+        }
+        else
+        {
+             Shield -= amount;
+            updateShieldUI();
+        }
+        
 
         if (HP <= 0)
         {
@@ -235,15 +294,26 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
 
     public void SpawnPlayer()
     {
+        Debug.Log("yes");
         controller.enabled = false;
         HP = HPOrig;
         updatePlayerUI();
+        Debug.Log("yes 1");
+        updateShieldUI();
+        Debug.Log("yes 2");
         transform.position = GameManager.Instance.playerSpawnPos.transform.position;
         controller.enabled = true;
     }
 
     public void updatePlayerUI()
     {
-        GameManager.Instance.playerHpBar.fillAmount = (float)HP / HPOrig;
+         //Debug.Log("No!");
+         GameManager.Instance.playerHpBar.fillAmount = (float)HP / HPOrig;
     }
+
+    public void updateShieldUI()
+    {  
+         GameManager.Instance.playerShieldBar.fillAmount = (float)Shield / ShieldOrig;
+    }
+
 }

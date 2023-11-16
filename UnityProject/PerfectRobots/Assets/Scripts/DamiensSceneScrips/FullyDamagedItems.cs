@@ -6,11 +6,13 @@ using UnityEngine;
 public class FullyDamagedItems : MonoBehaviour, IDamage
 {
     [SerializeField] int HP;
-    public GameObject myPrefab;
+    [SerializeField] GameObject intactGlass;
+    [SerializeField] GameObject brokenGlass;
 
     void Start()
     {
-
+        intactGlass.SetActive(true);
+        brokenGlass.SetActive(false);
     }
 
     void Update()
@@ -25,9 +27,8 @@ public class FullyDamagedItems : MonoBehaviour, IDamage
 
         if (HP <= 0)
         {
-            Destroy(gameObject);
-            GameObject newObject = Instantiate(myPrefab, new Vector3(2.5f, -0.025f, 8.5f), Quaternion.Euler(-90, 0, 0));
-
+            intactGlass.SetActive(false);
+            brokenGlass.SetActive(true);
         }
 
     }
