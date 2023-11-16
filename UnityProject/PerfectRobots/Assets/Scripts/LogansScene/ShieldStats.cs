@@ -7,6 +7,7 @@ public class ShieldStats : MonoBehaviour, IDamage
 {
     [Header("===== Components =====")]
     [SerializeField] MeshRenderer model;
+    [SerializeField] GameObject shieldPos;
 
     [SerializeField] GameObject shieldPos;
     [SerializeField] AudioSource aud;
@@ -16,6 +17,9 @@ public class ShieldStats : MonoBehaviour, IDamage
 
     bool playerInShieldRange;
     bool shieldDead = false;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
