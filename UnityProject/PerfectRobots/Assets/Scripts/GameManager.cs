@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject menuMain;
     [SerializeField] GameObject reticlePause;
     [SerializeField] TMP_Text enemyCount;
-    [SerializeField] Image exitBG;
     [SerializeField] GameObject playerDmgScreen;
     [SerializeField] GameObject GetToTheChopper;
     [SerializeField] GameObject enemycounttext;
@@ -221,16 +220,16 @@ public class GameManager : MonoBehaviour
         playerDmgScreen.SetActive(false);
     }
 
-    public void Begin()
-    {
-        startGame = false;
-        isPaused = !isPaused;
-        menuActive = menuMain;
-        menuActive.SetActive(true);
-        Time.timeScale = 0;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.Confined;
-    }
+    //public void Begin()
+    //{
+    //    startGame = false;
+    //    isPaused = !isPaused;
+    //    menuActive = menuMain;
+    //    menuActive.SetActive(true);
+    //    Time.timeScale = 0;
+    //    Cursor.visible = true;
+    //    Cursor.lockState = CursorLockMode.Confined;
+    //}
 
     public void CollectAmmo(int AddedAmmo)
     {
