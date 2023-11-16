@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2625511091856222903}
   - component: {fileID: 2655501092092200269}
   m_Layer: 0
-  m_Name: Glass Barrier Broken
+  m_Name: Glass_Barrier_Broken_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
