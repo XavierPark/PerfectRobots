@@ -8,17 +8,9 @@ public class ShieldStats : MonoBehaviour, IDamage
     [Header("===== Components =====")]
     [SerializeField] MeshRenderer model;
 
-    [SerializeField] GameObject shieldPos;
-    [SerializeField] AudioSource aud;
 
     [Header("===== Stats =====")]
     [Range(1, 5)][SerializeField] int shieldHp;
-
-    [Header("===== Audio =====")]
-    [SerializeField] AudioClip audDamage;
-    [Range(0, 1)][SerializeField] float audDamageVol;
-    [SerializeField] AudioClip audShieldOn;
-    [Range(0, 1)][SerializeField] float audShieldOnVol;
 
     bool playerInShieldRange;
     bool shieldDead = false;
@@ -34,7 +26,6 @@ public class ShieldStats : MonoBehaviour, IDamage
         if(playerInShieldRange && !shieldDead)
         {
             shieldOn();
-            aud.PlayOneShot(audShieldOn, audShieldOnVol);
         }
         else
         {
@@ -75,8 +66,7 @@ public class ShieldStats : MonoBehaviour, IDamage
     public void takeDamage(int amount)
     {
         shieldHp -= amount;
-        aud.PlayOneShot(audDamage, audDamageVol);
-        if (shieldHp <= 0)
+        if(shieldHp <= 0)
         {
             shieldDead = true;
             shieldOff();
