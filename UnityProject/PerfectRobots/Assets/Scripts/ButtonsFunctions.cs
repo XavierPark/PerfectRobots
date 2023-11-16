@@ -26,7 +26,7 @@ public class ButtonFunctions : MonoBehaviour
     public void bStart()
     {
         GameManager.Instance.stateUnpause();
-        GameManager.Instance.startGame = true;
+        //GameManager.Instance.startGame = true;
         GameManager.Instance.isPaused = false;
     }
 

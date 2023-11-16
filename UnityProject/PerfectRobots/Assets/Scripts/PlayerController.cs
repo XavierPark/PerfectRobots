@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     [SerializeField] AudioSource aud;
     [Range(2, 8)][SerializeField] float playerSpeed;
     [Range(8, 30)][SerializeField] float jumpHeight;
+    [Range(3, 6)][SerializeField] int sprintMod;
     [Range(1, 4)][SerializeField] int jumpsMax;
     [Range(-10, -40)][SerializeField] float gravityValue;
     
@@ -43,6 +44,8 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     private Vector3 move;
     private Vector3 playerVelocity;
     bool isShooting;
+    bool isPlayingSteps;
+    bool isSprinting;
     private bool groundedPlayer;
     private int jumpTimes;
     public int HPOrig;
@@ -51,7 +54,7 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     Transform gunOrgPosTransform;
     int HPOrig;
     int ShieldOrig;
-    bool isPlayingSteps;
+    
 
     void Start()
     {
@@ -82,8 +85,16 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
 
     void Movement()
     {
+        
+         sprint();
+        
+       
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDist);
 
+        if (Input.GetButton("Shoot") && !isShooting)
+        {
+            StartCoroutine(shoot());
+        }
 
         groundedPlayer = controller.isGrounded;
 
@@ -125,6 +136,23 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
 
         isPlayingSteps = false;
     }
+
+    void sprint()
+    {
+        if (Input.GetButtonDown("Sprint"))
+        {
+            
+            isSprinting = true;
+            playerSpeed *= sprintMod;
+        }
+        else if (Input.GetButtonUp("Sprint"))
+        {
+            
+            isSprinting = false;
+            playerSpeed /= sprintMod;
+        }
+    }
+
 
     IEnumerator shoot()
     {
@@ -294,13 +322,10 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
 
     public void SpawnPlayer()
     {
-        Debug.Log("yes");
         controller.enabled = false;
         HP = HPOrig;
         updatePlayerUI();
-        Debug.Log("yes 1");
         updateShieldUI();
-        Debug.Log("yes 2");
         transform.position = GameManager.Instance.playerSpawnPos.transform.position;
         controller.enabled = true;
     }
