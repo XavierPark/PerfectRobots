@@ -157,6 +157,7 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     {
         //Debug.Log("shoot() called;");
         //Debug.Log("There are " + gunList[selectedGun].ammoInMagCurr + " bullets left in " + gunList[selectedGun].name  + ";");
+
         if (gunList[selectedGun].ammoInMagCurr > 0)
         {
             isShooting = true;
@@ -197,7 +198,6 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
         else
         {
             isShooting = true;
-            GameManager.Instance.relodMessage.enabled = true;
             yield return new WaitForSeconds(reloadTime);
             if (!gunList[selectedGun].Electric)
             {
@@ -225,7 +225,9 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
                     GameManager.Instance.eleAmmoCurr = 0;
                 }
             }
+            GameManager.Instance.relodMessage.SetActive(true);
             yield return new WaitForSeconds(shootRate);
+            GameManager.Instance.relodMessage.SetActive(false);
             isShooting = false;
         }
     }
