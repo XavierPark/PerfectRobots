@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     private Vector3 playerVelocity;
     bool isShooting;
     bool isPlayingSteps;
-    bool isSprinting;
+    public bool isSprinting;
     private bool groundedPlayer;
     private int jumpTimes;
     public int HPOrig;
