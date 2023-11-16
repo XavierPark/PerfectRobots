@@ -37,10 +37,10 @@ public class GameManager : MonoBehaviour
     public bool startGame = false;
     float timescaleOrig;
     int enemiesRemaining;
-    public int ammoCurr;
-    public int ammoMagMax;
-    public int ammoInMagCurr;
-    
+    public int norAmmoCurr;
+    public int eleAmmoCurr;
+
+
     //door stuff - Dami
     [Header("-----Doors-----")]
     EndDoor endDoor;
@@ -221,10 +221,5 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
-    }
-
-    public void CollectAmmo(int AddedAmmo)
-    {
-        ammoCurr += AddedAmmo;
     }
 }

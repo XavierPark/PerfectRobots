@@ -19,6 +19,7 @@ public class EnemyAI : MonoBehaviour, IDamage
     [SerializeField] int shootCone;
     [SerializeField] int roamDist;
     [SerializeField] int roamPauseTime;
+    public bool robotType;
 
     [Header("----- Gun Stats -----")]
     [SerializeField] GameObject bullet;

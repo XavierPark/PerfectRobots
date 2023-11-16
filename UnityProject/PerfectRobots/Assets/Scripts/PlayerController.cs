@@ -7,9 +7,10 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     [Header("----- Components -----")]
     [SerializeField] CharacterController controller;
     [SerializeField] Transform shootPos;
+    [SerializeField] Transform shootPos2;
 
     [Header("----- Player Stats -----")]
-    [Range(1, 10)][SerializeField] int HP;
+    [Range(1, 10)]public int HP;
     [Range(2, 8)][SerializeField] float playerSpeed;
     [Range(8, 30)][SerializeField] float jumpHeight;
     [Range(1, 4)][SerializeField] int jumpsMax;
@@ -17,11 +18,15 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
 
 
     [Header("----- Gun Stats -----")]
+    [SerializeField] List<GunStats> gunList = new List<GunStats>();
+    [SerializeField] GameObject gunModel;
+    [SerializeField] GameObject gunModel2;
     [SerializeField] int shootDamage;
     [SerializeField] int shootDist;
     [SerializeField] float shootRate; //Changed to float so we can have faster gunfire - Dami
     [SerializeField] float reloadTime;
     [SerializeField] GameObject bullet;
+    [SerializeField] GameObject bullet2;
 
 
     private Vector3 move;
@@ -29,12 +34,19 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     bool isShooting;
     private bool groundedPlayer;
     private int jumpTimes;
-    int HPOrig;
+    public int HPOrig;
+    int selectedGun;
+    Transform gunPosTransform;
+    Transform gunOrgPosTransform;
 
     void Start()
     {
+        changeGun();
         HPOrig = HP;
         SpawnPlayer();
+        gunPosTransform = gunModel.transform;
+        Transform gunOrgPosTransform = gunModel.transform;
+
     }
 
     // Update is called once per frame
@@ -44,17 +56,18 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
         {
             Movement();
         }
+
+        if (gunList.Count > 0)
+        {
+            selectGun();
+            if (Input.GetButton("Shoot") && !isShooting)
+            { StartCoroutine(shoot()); }
+        }
     }
 
     void Movement()
     {
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDist);
-
-        if (Input.GetButton("Shoot") && !isShooting)
-        {
-            StartCoroutine(shoot());
-        }
-
 
 
         groundedPlayer = controller.isGrounded;
@@ -82,21 +95,38 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     }
     IEnumerator shoot()
     {
-        if (GameManager.Instance.ammoInMagCurr > 0)
+        //Debug.Log("shoot() called;");
+        //Debug.Log("There are " + gunList[selectedGun].ammoInMagCurr + " bullets left in " + gunList[selectedGun].name  + ";");
+        if (gunList[selectedGun].ammoInMagCurr > 0)
         {
             isShooting = true;
-            GameManager.Instance.ammoInMagCurr--;
+            gunList[selectedGun].ammoInMagCurr--;
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
             {
                 //Commenting this out to see if thats why my glass will not work -Dami
-                Instantiate(bullet, shootPos.position, transform.rotation);
+                if (!gunList[selectedGun].Electric)
+                {
+                    Instantiate(bullet, shootPos.position, transform.rotation);
+                }
+                else
+                {
+                    Instantiate(bullet2, shootPos2.position, transform.rotation);
+                }
+                //Debug.Log("Instantiate(bullet, shootPos.postion, transform.rotation); called;");
                 IDamage damageable = hit.collider.GetComponent<IDamage>();
+                EnemyAI Enemy = hit.collider.GetComponent<EnemyAI>();
 
                 if (hit.transform != transform && damageable != null)
                 {
-                    damageable.takeDamage(shootDamage);
-
+                    if (Enemy.robotType && gunList[selectedGun].Electric)
+                    {
+                        damageable.takeDamage(shootDamage * 2);
+                    }
+                    else
+                    {
+                        damageable.takeDamage(shootDamage);
+                    }
                 }
             }
             yield return new WaitForSeconds(shootRate);
@@ -106,18 +136,89 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
         {
             isShooting = true;
             yield return new WaitForSeconds(reloadTime);
-            if (GameManager.Instance.ammoCurr >= GameManager.Instance.ammoMagMax)
+            if (!gunList[selectedGun].Electric)
             {
-                Mathf.Clamp(GameManager.Instance.ammoCurr -= GameManager.Instance.ammoMagMax, 0, 1000);
-                GameManager.Instance.ammoInMagCurr = GameManager.Instance.ammoMagMax;
+                if (GameManager.Instance.norAmmoCurr >= gunList[selectedGun].ammoMagMax)
+                {
+                    Mathf.Clamp(GameManager.Instance.norAmmoCurr -= gunList[selectedGun].ammoMagMax, 0, 1000);
+                    gunList[selectedGun].ammoInMagCurr = gunList[selectedGun].ammoMagMax;
+                }
+                else
+                {
+                    gunList[selectedGun].ammoInMagCurr = GameManager.Instance.norAmmoCurr;
+                    GameManager.Instance.norAmmoCurr = 0;
+                }
             }
             else
             {
-                GameManager.Instance.ammoInMagCurr = GameManager.Instance.ammoCurr;
-                GameManager.Instance.ammoCurr = 0;
+                if (GameManager.Instance.eleAmmoCurr >= gunList[selectedGun].ammoMagMax)
+                {
+                    Mathf.Clamp(GameManager.Instance.eleAmmoCurr -= gunList[selectedGun].ammoMagMax, 0, 1000);
+                    gunList[selectedGun].ammoInMagCurr = gunList[selectedGun].ammoMagMax;
+                }
+                else
+                {
+                    gunList[selectedGun].ammoInMagCurr = GameManager.Instance.eleAmmoCurr;
+                    GameManager.Instance.eleAmmoCurr = 0;
+                }
             }
             isShooting = false;
         }
+    }
+
+    void selectGun()
+    {
+        float MouseScrollWheelOrg = Input.GetAxis("Mouse ScrollWheel");
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < gunList.Count - 1)
+        {
+            Mathf.Clamp(selectedGun++, 0, gunList.Count);
+            changeGun();
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
+        {
+            Mathf.Clamp(selectedGun--, 0, gunList.Count);
+            changeGun();
+        }
+
+        if (Input.GetAxis("Mouse ScrollWheel") != MouseScrollWheelOrg)
+        {
+            Debug.Log("Mouse scroll wheel value is " + Input.GetAxis("Mouse ScrollWheel"));
+        }
+    }
+
+    void changeGun()
+    {
+
+        if (selectedGun == 1)
+        {
+            gunModel2.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+            //    Vector3 gunPosCurrPos = gunOrgPosTransform.position;
+            //    gunPosCurrPos.x += 1;
+            //    gunPosTransform.position = gunPosCurrPos;
+            gunModel.GetComponent<MeshFilter>().sharedMesh = null;
+            gunModel.GetComponent<MeshRenderer>().sharedMaterial = null;
+            gunModel2.GetComponent<MeshFilter>().sharedMesh = gunList[selectedGun].model.GetComponent<MeshFilter>().sharedMesh;
+            gunModel2.GetComponent<MeshRenderer>().sharedMaterial = gunList[selectedGun].model.GetComponent<MeshRenderer>().sharedMaterial;
+        }
+        else if (selectedGun == 0)
+        {
+            gunModel.transform.localScale = new Vector3(50, 50, 50);
+            //Vector3 gunPosCurrPos = gunPosTransform.position;
+            //gunPosTransform.position = gunOrgPosTransform.position;
+            gunModel2.GetComponent<MeshFilter>().sharedMesh = null;
+            gunModel2.GetComponent<MeshRenderer>().sharedMaterial = null;
+            gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[selectedGun].model.GetComponent<MeshFilter>().sharedMesh;
+            gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[selectedGun].model.GetComponent<MeshRenderer>().sharedMaterial;
+        }
+        Debug.Log("int selected Gun = " + selectedGun + " and current gun name is " + gunList[selectedGun].name);
+
+        shootDamage = gunList[selectedGun].shootDamage;
+        shootDist = gunList[selectedGun].shootDist;
+        shootRate = gunList[selectedGun].shootRate;
+
+
+        isShooting = false;
     }
 
     public void takeDamage(int amount)

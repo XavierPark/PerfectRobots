@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a38f47b3b4edcb044b5e98a877fbe99b, type: 3}
+  m_Name: LazerSMG
+  m_EditorClassIdentifier: 
+  shootDamage: 0
+  shootDist: 20
+  shootRate: 0.1
+  ammoInMagCurr: 0
+  ammoMagMax: 15
+  Electric: 1
+  model: {fileID: 8558446743043192252, guid: da2b52ff5a716504d85bef9eb4a9cc63, type: 3}
+  hitEffect: {fileID: 0}
+  shootSound: {fileID: 0}
+  shootSoundVol: 0

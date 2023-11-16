@@ -257,7 +257,7 @@ Transform:
   - {fileID: 6010473073578968834}
   - {fileID: 3430595016841437647}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4815251036570308737
 Animator:
@@ -295,7 +295,7 @@ MonoBehaviour:
   model: {fileID: 6229166151344267669}
   agent: {fileID: 7891940255608411821}
   shootPos: {fileID: 3430595016841437647}
-  headPos: {fileID: 6380300756701308910}
+  headPos: {fileID: 2653117176718051024}
   anim: {fileID: 4815251036570308737}
   HP: 6
   playerFaceSpeed: 4
@@ -303,6 +303,7 @@ MonoBehaviour:
   shootCone: 45
   roamDist: 15
   roamPauseTime: 1
+  robotType: 1
   bullet: {fileID: 4075917783296887175, guid: 3bc133aec5c0aaf41a34fe1a0a66d457, type: 3}
   shootRate: 0
 --- !u!195 &7891940255608411821
