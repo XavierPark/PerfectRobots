@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     [SerializeField] AudioSource aud;
     [Range(2, 8)][SerializeField] float playerSpeed;
     [Range(8, 30)][SerializeField] float jumpHeight;
-    [Range(3, 6)][SerializeField] int sprintMod;
+    [Range(3, 4)][SerializeField] int sprintMod;
     [Range(1, 4)][SerializeField] int jumpsMax;
     [Range(-10, -40)][SerializeField] float gravityValue;
 
@@ -64,6 +64,7 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
         SpawnPlayer();
         gunPosTransform = gunModel.transform;
         Transform gunOrgPosTransform = gunModel.transform;
+        sprintMod = 3;
 
     }
 
@@ -85,10 +86,25 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
 
     void Movement()
     {
-        
-         sprint();
-        
-       
+
+        if (Input.GetButtonDown("Sprint"))
+        {
+            Debug.Log(playerSpeed);
+            Debug.Log(sprintMod);
+            isSprinting = true;
+            playerSpeed *= sprintMod;
+            Debug.Log(playerSpeed);
+        }
+        else if (Input.GetButtonUp("Sprint"))
+        {
+            Debug.Log(playerSpeed);
+            Debug.Log(sprintMod);
+            isSprinting = false;
+            playerSpeed /= sprintMod;
+            Debug.Log(playerSpeed);
+        }
+
+
         Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * shootDist);
 
         if (Input.GetButton("Shoot") && !isShooting)
@@ -136,23 +152,6 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
 
         isPlayingSteps = false;
     }
-
-    void sprint()
-    {
-        if (Input.GetButtonDown("Sprint"))
-        {
-            
-            isSprinting = true;
-            playerSpeed *= sprintMod;
-        }
-        else if (Input.GetButtonUp("Sprint"))
-        {
-            
-            isSprinting = false;
-            playerSpeed /= sprintMod;
-        }
-    }
-
 
     IEnumerator shoot()
     {

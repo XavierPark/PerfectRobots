@@ -146,6 +146,7 @@ public class GameManager : MonoBehaviour
     public void statePause()
     {
         isPaused = !isPaused;
+        playerScript.enabled = false;
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
@@ -154,6 +155,7 @@ public class GameManager : MonoBehaviour
     public void stateUnpause()
     {
         isPaused = !isPaused;
+        playerScript.enabled = true;
         Time.timeScale = timescaleOrig;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Locked;
