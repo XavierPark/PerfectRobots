@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     [Range(2, 8)][SerializeField] float playerSpeed;
     [Range(8, 30)][SerializeField] float jumpHeight;
     [Range(2, 4)][SerializeField] int sprintMod;
-    [Range(0, 4)][SerializeField] int sprintamount;
     [Range(1, 4)][SerializeField] int jumpsMax;
     [Range(-10, -40)][SerializeField] float gravityValue;
     
@@ -41,7 +40,7 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     bool isShooting;
     bool isPlayingSteps;
     bool isSprinting;
-    int sprintMax;
+
     private bool groundedPlayer;
     private int jumpTimes;
     int HPOrig;
@@ -50,7 +49,6 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
 
     void Start()
     {
-        sprintMax = sprintamount;
         HPOrig = HP;
         ShieldOrig = Shield;
         SpawnPlayer();
@@ -135,11 +133,6 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
         }
     }
 
-    IEnumerator resetSperint()
-    {
-        yield return new WaitForSeconds(3);
-        sprintamount = sprintMax;
-    }
 
     IEnumerator shoot()
     {
