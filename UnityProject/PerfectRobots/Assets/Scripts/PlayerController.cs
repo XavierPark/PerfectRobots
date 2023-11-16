@@ -180,7 +180,6 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
 
                 if (hit.transform != transform && damageable != null)
                 {
-                        Debug.Log("takedamage");
                     if (Enemy != null && Enemy.robotType && gunList[selectedGun].Electric)
                     {
                         damageable.takeDamage(shootDamage * 2);
@@ -189,6 +188,7 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
                     {
                         damageable.takeDamage(shootDamage);
                     }
+                        Debug.Log("takendamage: " + shootDamage);
                 }
             }
             yield return new WaitForSeconds(shootRate);

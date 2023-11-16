@@ -850,7 +850,7 @@ MonoBehaviour:
   shootPos: {fileID: 7611743746967069322}
   headPos: {fileID: 5935460488438878874}
   anim: {fileID: 6891756032217082519}
-  HP: 6
+  HP: 10
   playerFaceSpeed: 4
   viewCone: 90
   shootCone: 45
@@ -1364,7 +1364,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 2335313773822582588}
-  shieldPos: {fileID: 0}
   aud: {fileID: 5574330175088588016}
   shieldHp: 4
   audDamage: {fileID: 8300000, guid: 09696469bd1762f4ea4d4fe944e7e8a2, type: 3}

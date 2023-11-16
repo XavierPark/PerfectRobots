@@ -442,7 +442,7 @@ MonoBehaviour:
   shootPos: {fileID: 3358888985068966076}
   headPos: {fileID: 5507272703980899170}
   anim: {fileID: 6820007904183731934}
-  HP: 2
+  HP: 8
   playerFaceSpeed: 8
   viewCone: 90
   shootCone: 45

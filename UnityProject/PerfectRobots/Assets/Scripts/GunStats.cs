@@ -17,4 +17,10 @@ public class GunStats : ScriptableObject
     public ParticleSystem hitEffect;
     public AudioClip shootSound;
     [Range(0f, 1f)] public float shootSoundVol;
+
+    void Start()
+    {
+        ammoInMagCurr = ammoMagMax;
+        shootDamage = 1;
+    }
 }
