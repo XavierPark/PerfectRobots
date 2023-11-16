@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     [SerializeField] float shootRate; //Changed to float so we can have faster gunfire - Dami
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject bullet2;
+    [SerializeField] float reloadTime;
 
     [Header("----- Audio -----")]
     [SerializeField] AudioClip[] audSteps;
@@ -52,7 +53,6 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     int selectedGun;
     Transform gunPosTransform;
     Transform gunOrgPosTransform;
-    int HPOrig;
     int ShieldOrig;
     
 
@@ -156,13 +156,14 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
 
     IEnumerator shoot()
     {
+        RaycastHit hit;
         //Debug.Log("shoot() called;");
         //Debug.Log("There are " + gunList[selectedGun].ammoInMagCurr + " bullets left in " + gunList[selectedGun].name  + ";");
         if (gunList[selectedGun].ammoInMagCurr > 0)
         {
             isShooting = true;
             gunList[selectedGun].ammoInMagCurr--;
-            RaycastHit hit;
+            
             if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
             {
                 //Commenting this out to see if thats why my glass will not work -Dami
@@ -224,8 +225,8 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
                 }
             }
             isShooting = false;
+        }
         isShooting = true;
-        RaycastHit hit;
         if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
         {
             Instantiate(bullet, shootPos.position, transform.rotation);
