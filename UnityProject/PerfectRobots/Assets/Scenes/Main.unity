@@ -776,34 +776,26 @@ PrefabInstance:
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5102927979406138804, guid: 56bfe08ab52ae1c4a93577e90cdf4822, type: 3}
-<<<<<<< Updated upstream
       propertyPath: audMusic
       value: 
       objectReference: {fileID: 8300000, guid: 14b272abeb5c9fb4cbc73bfdaadb8193, type: 3}
     - target: {fileID: 5102927979406138804, guid: 56bfe08ab52ae1c4a93577e90cdf4822, type: 3}
       propertyPath: audWinVol
       value: 0.5
-=======
       propertyPath: startGame
       value: 0
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 5102927979406138804, guid: 56bfe08ab52ae1c4a93577e90cdf4822, type: 3}
       propertyPath: ammoMagMax
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5102927979406138804, guid: 56bfe08ab52ae1c4a93577e90cdf4822, type: 3}
-<<<<<<< Updated upstream
-      propertyPath: audMusicVol
-      value: 0.3
-=======
       propertyPath: eleAmmoCurr
       value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 5102927979406138804, guid: 56bfe08ab52ae1c4a93577e90cdf4822, type: 3}
       propertyPath: norAmmoCurr
       value: 45
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 5102927979406138804, guid: 56bfe08ab52ae1c4a93577e90cdf4822, type: 3}
       propertyPath: ammoInMagCurr
@@ -929,7 +921,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 396224897}
   m_SourcePrefab: {fileID: 100100000, guid: 56bfe08ab52ae1c4a93577e90cdf4822, type: 3}
-<<<<<<< Updated upstream
 --- !u!1 &396224896 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5499720925268901236, guid: 56bfe08ab52ae1c4a93577e90cdf4822, type: 3}
@@ -1036,7 +1027,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2507044518282795245, guid: 6fce45a16bb28b340b4a062d849ef2f3, type: 3}
   m_PrefabInstance: {fileID: 2086775580}
   m_PrefabAsset: {fileID: 0}
-=======
 --- !u!1001 &555979601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1098,7 +1088,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4836de679e1a3c54386044e0c79de6c1, type: 3}
->>>>>>> Stashed changes
 --- !u!114 &558930706 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8033246181065818716, guid: 56bfe08ab52ae1c4a93577e90cdf4822, type: 3}
@@ -1110,7 +1099,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
 --- !u!1001 &804997262
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1361,7 +1349,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79fc3a2b3d0d4c746bbcbcb613e2cb69, type: 3}
-=======
 --- !u!1 &558958312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1508,7 +1495,6 @@ Transform:
   m_Father: {fileID: 2102668886}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> Stashed changes
 --- !u!1 &1147429225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1700,7 +1686,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bc133aec5c0aaf41a34fe1a0a66d457, type: 3}
-<<<<<<< Updated upstream
 --- !u!1001 &1267724538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1951,13 +1936,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79fc3a2b3d0d4c746bbcbcb613e2cb69, type: 3}
-=======
 --- !u!4 &1405633570 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 137900733646172083, guid: 6fce45a16bb28b340b4a062d849ef2f3, type: 3}
   m_PrefabInstance: {fileID: 2086775580}
   m_PrefabAsset: {fileID: 0}
->>>>>>> Stashed changes
 --- !u!1 &1642548958 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3449264856421593393, guid: 9966aa3c008742041a74ffbeb93083cd, type: 3}
