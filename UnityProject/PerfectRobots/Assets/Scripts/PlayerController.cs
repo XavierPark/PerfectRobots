@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
 
     [Header("----- Player Stats -----")]
     [Range(1, 10)] public int HP;
-    [Range(0, 10)][SerializeField] int Shield;
+    [Range(0, 10)]public int Shield;
     [SerializeField] AudioSource aud;
     [Range(2, 8)][SerializeField] float playerSpeed;
     [Range(8, 30)][SerializeField] float jumpHeight;
@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     [SerializeField] float shootRate; //Changed to float so we can have faster gunfire - Dami
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject bullet2;
-    [SerializeField] float reloadTime;
 
     [Header("----- Audio -----")]
     [SerializeField] AudioClip[] audSteps;
@@ -46,7 +45,7 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     private Vector3 playerVelocity;
     bool isShooting;
     bool isPlayingSteps;
-    public bool isSprinting;
+    bool isSprinting;
     private bool groundedPlayer;
     private int jumpTimes;
     public int HPOrig;
@@ -54,6 +53,7 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     Transform gunPosTransform;
     Transform gunOrgPosTransform;
     int ShieldOrig;
+    int reloadTime;
 
 
     void Start()
@@ -155,14 +155,13 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
 
     IEnumerator shoot()
     {
-        RaycastHit hit;
         //Debug.Log("shoot() called;");
         //Debug.Log("There are " + gunList[selectedGun].ammoInMagCurr + " bullets left in " + gunList[selectedGun].name  + ";");
         if (gunList[selectedGun].ammoInMagCurr > 0)
         {
             isShooting = true;
             gunList[selectedGun].ammoInMagCurr--;
-            
+            RaycastHit hit;
             if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
             {
                 //Commenting this out to see if thats why my glass will not work -Dami

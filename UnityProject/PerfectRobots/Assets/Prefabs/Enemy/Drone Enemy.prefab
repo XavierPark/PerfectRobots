@@ -455,6 +455,7 @@ MonoBehaviour:
   - {fileID: 8053495133308527120, guid: d185013f9c036ab4b94edbd3c6dc3391, type: 3}
   - {fileID: 4314489863434980163, guid: af95260e0953dcb448fbd74db09eea84, type: 3}
   - {fileID: 7335518215518311903, guid: 577f23c78ce0cf944beb652c56d9ddf4, type: 3}
+  - {fileID: 4966989082634804180, guid: 369e074291d51e04b8f4cd2d2e2df08f, type: 3}
 --- !u!195 &5723399714592288138
 NavMeshAgent:
   m_ObjectHideFlags: 0

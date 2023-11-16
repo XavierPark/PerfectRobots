@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 2819111089080986881}
   - component: {fileID: 8082521691906764424}
   m_Layer: 0
-  m_Name: 'healthAmmoGroObj '
+  m_Name: healthGroObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

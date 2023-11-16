@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class healthAmmoGroObj : MonoBehaviour
+public class ShieldAmmoGroObj : MonoBehaviour
 {
     [Header("-----  Components  -----\n")]
     [SerializeField] float floatSpeed;
@@ -13,7 +13,7 @@ public class healthAmmoGroObj : MonoBehaviour
     [SerializeField] float rotateSpeedMax;
 
     [Header("-----  Components  -----\n")]
-    [SerializeField] int HealthHolding;
+    [SerializeField] int ShieldHolding;
 
 
     Vector3 initialPosition;
@@ -48,8 +48,8 @@ public class healthAmmoGroObj : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             PlayerController player = other.GetComponent<PlayerController>();
-            Mathf.Clamp(player.HP += HealthHolding, 0, player.HPOrig);
-            player.updatePlayerUI();
+            Mathf.Clamp(player.Shield += ShieldHolding, 0, player.HPOrig);
+            player.updateShieldUI();
             Destroy(gameObject);
         }
     }

@@ -15,7 +15,7 @@ MonoBehaviour:
   shootDamage: 1
   shootDist: 20
   shootRate: 0.4
-  ammoInMagCurr: 7
+  ammoInMagCurr: 2
   ammoMagMax: 15
   Electric: 0
   model: {fileID: 5651441450910739591, guid: 6f3db8c3aa46eb94d8a5588a02a15389, type: 3}
