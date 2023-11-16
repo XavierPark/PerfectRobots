@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     [Range(0, 10)][SerializeField] int Shield;
     [Range(2, 8)][SerializeField] float playerSpeed;
     [Range(8, 30)][SerializeField] float jumpHeight;
-    [Range(2, 4)][SerializeField] int sprintMod;
+    [Range(3, 6)][SerializeField] int sprintMod;
     [Range(1, 4)][SerializeField] int jumpsMax;
     [Range(-10, -40)][SerializeField] float gravityValue;
     
@@ -40,7 +40,6 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     bool isShooting;
     bool isPlayingSteps;
     bool isSprinting;
-
     private bool groundedPlayer;
     private int jumpTimes;
     int HPOrig;
@@ -121,13 +120,13 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
     {
         if (Input.GetButtonDown("Sprint"))
         {
-            Debug.Log("down");
+            
             isSprinting = true;
             playerSpeed *= sprintMod;
         }
         else if (Input.GetButtonUp("Sprint"))
         {
-            Debug.Log("up");
+            
             isSprinting = false;
             playerSpeed /= sprintMod;
         }
@@ -179,13 +178,10 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
 
     public void SpawnPlayer()
     {
-        Debug.Log("yes");
         controller.enabled = false;
         HP = HPOrig;
         updatePlayerUI();
-        Debug.Log("yes 1");
         updateShieldUI();
-        Debug.Log("yes 2");
         transform.position = GameManager.Instance.playerSpawnPos.transform.position;
         controller.enabled = true;
     }
