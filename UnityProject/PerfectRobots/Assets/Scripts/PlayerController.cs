@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour, IDamage //Added this since you ha
 
     [Header("----- Player Stats -----")]
     [Range(1, 10)] public int HP;
-    [Range(0, 10)]public int Shield;
+    [Range(2, 10)]public int Shield;
     [SerializeField] AudioSource aud;
     [Range(2, 8)][SerializeField] float playerSpeed;
     [Range(8, 30)][SerializeField] float jumpHeight;
